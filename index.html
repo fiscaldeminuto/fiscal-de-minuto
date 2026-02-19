@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔍 Fiscal de Minuto — 19/02/2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:   #0d0d0d;
+      --offwhite:#f4f0e8;
+      --yellow:  #f5c400;
+      --red:     #e03030;
+      --green:   #1db954;
+      --blue:    #3a86ff;
+      --purple:  #a855f7;
+      --gray:    #2a2a2a;
+      --muted:   #555;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #e8e4dc;
+      color: var(--black);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 0 60px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--yellow);
+      padding: 28px 24px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '🔍';
+      font-size: 120px;
+      position: absolute;
+      right: -20px;
+      top: -10px;
+      opacity: .12;
+      line-height: 1;
+    }
+    .header-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--black);
+      opacity: .6;
+      margin-bottom: 4px;
+    }
+    .header-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 10vw, 72px);
+      letter-spacing: 2px;
+      color: var(--black);
+      line-height: .95;
+    }
+    .header-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--black);
+      opacity: .55;
+      margin-top: 8px;
+    }
+
+    /* ── SECTION BLOCKS ── */
+    section {
+      margin: 0;
+      background: var(--offwhite);
+      border-bottom: 1px solid #d8d4cc;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 24px 12px;
+      background: var(--gray);
+    }
+    .section-emoji { font-size: 20px; }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1.5px;
+      color: var(--yellow);
+    }
+    .section-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #888;
+      margin-left: auto;
+      text-transform: uppercase;
+    }
+
+    .section-body { padding: 16px 24px 20px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .card:last-child { margin-bottom: 0; }
+
+    .card-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .card-body {
+      font-size: 13.5px;
+      color: #444;
+      line-height: 1.55;
+    }
+    .card-body a {
+      color: #b89200;
+      text-decoration: none;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .5px;
+      display: inline-block;
+      margin-top: 6px;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .card-body a:hover { border-color: #b89200; }
+
+    .tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .tag-ao-vivo   { background: var(--red); color: #fff; }
+    .tag-hoje      { background: var(--yellow); color: var(--black); }
+    .tag-volta     { background: #dceeff; color: #1a5fa8; }
+    .tag-resultado { background: #d4f0dd; color: #1a6e35; }
+
+    /* ── JOGO CARD ── */
+    .match-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .match-card:last-child { margin-bottom: 0; }
+    .match-team {
+      font-weight: 600;
+      font-size: 14px;
+      flex: 1;
+      color: var(--black);
+    }
+    .match-team.right { text-align: right; }
+    .match-score {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--black);
+      padding: 0 16px;
+      min-width: 80px;
+      text-align: center;
+    }
+    .match-time {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--blue);
+      text-align: center;
+    }
+    .match-info {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    /* ── WEATHER ── */
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .weather-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .weather-city {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .weather-temp {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--black);
+      line-height: 1;
+    }
+    .weather-desc {
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* ── NEWS ── */
+    .news-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-left: 4px solid var(--red);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+    }
+    .news-card.world  { border-left-color: var(--blue); }
+    .news-card.fofoca { border-left-color: var(--purple); }
+    .news-card:last-child { margin-bottom: 0; }
+    .news-card .card-title { color: var(--black); }
+    .news-card .card-body  { color: #444; }
+    .news-card .card-label { color: #888; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--yellow);
+      padding: 24px;
+      text-align: center;
+    }
+    .footer-grito {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(20px, 5vw, 32px);
+      color: var(--black);
+      letter-spacing: 3px;
+      line-height: 1.1;
+    }
+    .footer-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--black);
+      opacity: .5;
+      margin-top: 8px;
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 480px) {
+      .weather-grid { grid-template-columns: 1fr 1fr; }
+      .match-score { font-size: 20px; padding: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="header-label">Edição Nº 001 — Quinta-feira</div>
+  <div class="header-title">🔍 FISCAL<br>DE MINUTO</div>
+  <div class="header-date">19 de Fevereiro de 2026 &nbsp;·&nbsp; O resumo do dia em tempo recorde</div>
+</header>
+
+<!-- ══════════ CS2 ══════════ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">🔫</span>
+    <span class="section-title">CS 2</span>
+    <span class="section-sub">PGL Cluj-Napoca 2026</span>
+  </div>
+  <div class="section-body">
+
+    <div class="card">
+      <span class="tag tag-hoje">🔥 AMANHÃ (20/02) — QUARTAS DE FINAL</span>
+      <div class="card-title">FÚRIA x The MongolZ — 14h00 (Brasília)</div>
+      <div class="card-body">
+        A Pantera enfrenta os asiáticos nas quartas da PGL Cluj-Napoca 2026 na BT Arena, Romênia. FÚRIA tem <strong>5 vitórias seguidas</strong> contra os MongolZ. Time fechou a fase de grupos com campanha de 3V-1D. Em caso de classificação, enfrenta Vitality ou Aurora na semi de sábado (21).
+        <br><a href="https://www.hltv.org/" target="_blank">→ Acompanhe ao vivo no HLTV.org</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-resultado">✅ GRUPO — CAMPANHA</span>
+      <div class="card-title">3V — 1D na fase suíça</div>
+      <div class="card-body">
+        FÚRIA venceu B8 (2-0), FUT Esports (2-1 em OT dramático) e PARIVISION, e perdeu para Falcons. Time se mostrou sólido e é um dos favoritos ao título. <strong>Grande Final: domingo (22/02)</strong>.
+        <br><a href="https://draft5.gg/" target="_blank">→ Cobertura completa no Draft5.gg</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ FUTEBOL ══════════ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">⚽</span>
+    <span class="section-title">FUTEBOL</span>
+  </div>
+  <div class="section-body">
+
+    <!-- Brasileirão -->
+    <div class="card-label" style="padding:0 0 8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888;">🇧🇷 Brasileirão Betano 2026 · 2ª Rodada</div>
+
+    <div class="match-card">
+      <div class="match-team">Athletico-PR</div>
+      <div style="text-align:center">
+        <div class="match-time">19h30</div>
+        <div class="match-info">Arena da Baixada</div>
+      </div>
+      <div class="match-team right">Corinthians</div>
+    </div>
+
+    <div style="margin:8px 0 18px; font-size:12px; color:#888; font-family:'IBM Plex Mono',monospace; letter-spacing:.5px;">
+      📺 Record TV · Premiere · CazéTV &nbsp;|&nbsp; Próxima rodada: 25 e 26/02
+    </div>
+
+    <!-- Recopa Sul-Americana -->
+    <div class="card-label" style="padding:0 0 8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888;">🏆 Recopa Sul-Americana 2026 · Jogo de Ida</div>
+
+    <div class="match-card">
+      <div class="match-team">Lanús 🇦🇷</div>
+      <div style="text-align:center">
+        <div class="match-time">21h30</div>
+        <div class="match-info">La Fortaleza — ARG</div>
+      </div>
+      <div class="match-team right">🔴⚫ Flamengo</div>
+    </div>
+
+    <div class="card" style="margin-top:10px;">
+      <div class="card-body">
+        Campeão da Libertadores enfrenta o campeão da Sul-Americana. Flamengo chega embalado por 3 vitórias seguidas e busca o bicampeonato da Recopa (ganhou em 2020). Volta no Maracanã no dia 26/02.
+        <br><a href="https://www.flashscore.com.br/futebol/america-do-sul/copa-sul-americana/#/AL9bqAce/sorteio/" target="_blank">→ Tabela Conmebol no Flashscore</a>
+      </div>
+    </div>
+
+    <!-- Champions League -->
+    <div class="card-label" style="padding:18px 0 8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888;">🏆 Champions League 2025/26 · Playoffs — Resultado Ida</div>
+
+    <div class="match-card">
+      <span class="tag tag-resultado" style="position:absolute; top:8px; right:12px;">Ida</span>
+      <div class="match-team">Galatasaray</div>
+      <div class="match-score">5 — 2</div>
+      <div class="match-team right">Juventus</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Benfica</div>
+      <div class="match-score">0 — 1</div>
+      <div class="match-team right">Real Madrid</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Mônaco</div>
+      <div class="match-score">2 — 3</div>
+      <div class="match-team right">PSG</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Dortmund</div>
+      <div class="match-score">2 — 0</div>
+      <div class="match-team right">Atalanta</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Qarabag</div>
+      <div class="match-score">1 — 6</div>
+      <div class="match-team right">Newcastle</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Olympiacos</div>
+      <div class="match-score">0 — 2</div>
+      <div class="match-team right">Leverkusen</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Bodø/Glimt</div>
+      <div class="match-score">3 — 1</div>
+      <div class="match-team right">Inter de Milão</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Club Brugge</div>
+      <div class="match-score">3 — 3</div>
+      <div class="match-team right">Atlético de Madrid</div>
+    </div>
+
+    <div class="card" style="margin-top:10px;">
+      <div class="card-body">
+        🔴 <strong>Polêmica do jogo:</strong> Vinicius Jr. acusou o argentino Gianluca Prestianni (Benfica) de ofensa racial após marcar o gol da vitória do Real Madrid. Partida foi paralisada por 10 minutos com protocolo anti-racismo ativado. UEFA abriu investigação. Mbappé afirmou ter ouvido a ofensa. Volta dos playoffs acontece em 24 e 25/02.
+        <br><a href="https://www.flashscore.com.br/futebol/europa/liga-dos-campeoes/#/lMPimXln/sorteio/" target="_blank">→ Chaveamento completo no Flashscore</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ BRASIL ══════════ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">🇧🇷</span>
+    <span class="section-title">Brasil</span>
+    <span class="section-sub">2 destaques</span>
+  </div>
+  <div class="section-body">
+
+    <div class="news-card">
+      <div class="card-label">Política</div>
+      <div class="card-title">Desfile sobre Lula no Carnaval vira disputa judicial</div>
+      <div class="card-body">
+        A escola Acadêmicos de Niterói estreou no Grupo Especial homenageando o presidente Lula. Partidos de oposição acionaram a Justiça Eleitoral alegando propaganda antecipada. TSE analisa o caso.
+        <br><a href="https://revistaoeste.com/brasil/" target="_blank">→ Leia mais na Revista Oeste</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-label">Eleições 2026</div>
+      <div class="card-title">Pesquisa: 53% confiam nas urnas eletrônicas, 43% desconfiam</div>
+      <div class="card-body">
+        Levantamento da Genial/Quaest ouviu mais de 2 mil eleitores entre 5 e 9 de fevereiro. A polarização em torno do sistema eleitoral segue alta a menos de um ano das eleições presidenciais.
+        <br><a href="https://revistaoeste.com/brasil/" target="_blank">→ Leia mais na Revista Oeste</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ MUNDO ══════════ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">🌎</span>
+    <span class="section-title">Mundo</span>
+    <span class="section-sub">2 destaques</span>
+  </div>
+  <div class="section-body">
+
+    <div class="news-card world">
+      <div class="card-label">Esportes / Racismo</div>
+      <div class="card-title">Vini Jr. para Champions por 10 minutos após acusação de racismo</div>
+      <div class="card-body">
+        No Estádio da Luz em Lisboa, Vinicius Jr. acusou o argentino Prestianni, do Benfica, de chamá-lo de macaco após marcar um golaço. UEFA abriu investigação. Mbappé, Trent Alexander-Arnold e a CBF manifestaram apoio ao brasileiro.
+        <br><a href="https://revistaoeste.com/mundo/" target="_blank">→ Leia mais na Revista Oeste</a>
+      </div>
+    </div>
+
+    <div class="news-card world">
+      <div class="card-label">Geopolítica</div>
+      <div class="card-title">EUA e Irã negociam sobre programa nuclear em Genebra</div>
+      <div class="card-body">
+        Negociações começaram nesta semana na Embaixada de Omã em Genebra. Tensão permanece alta enquanto Israel afirma que conversas irão fracassar e sinalizações de possível ação militar continuam no radar.
+        <br><a href="https://revistaoeste.com/mundo/" target="_blank">→ Leia mais na Revista Oeste</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ FOFOCA ══════════ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">🗣️</span>
+    <span class="section-title">Fofoca do Fiscal</span>
+    <span class="section-sub">Puro babado</span>
+  </div>
+  <div class="section-body">
+
+    <div class="news-card fofoca">
+      <div class="card-label">Celebridades</div>
+      <div class="card-title">Bruna Marquezine e Shawn Mendes viram casal do Carnaval 2026 🎉</div>
+      <div class="card-body">
+        Os dois foram flagrados aos beijos em cima do trio de Ivete Sangalo no Carnaval de Salvador, no Valentine's Day americano (14/02). Bruna teria sussurrado <em>"eu amo tudo em você"</em> para o cantor canadense. A mídia internacional foi à loucura. Ivete já chamou Shawn de "meu genro". 👀
+        <br><a href="https://ofuxico.com.br/" target="_blank">→ Todo o babado no OFuxico</a>
+      </div>
+    </div>
+
+    <div class="news-card fofoca">
+      <div class="card-label">BBB 26 &amp; Novidades</div>
+      <div class="card-title">IZA assume novo romance e Mourinho cai em contradição sobre racismo 😬</div>
+      <div class="card-body">
+        A cantora IZA foi flagrada trocando beijos com o ator João Vitor Silva na Sapucaí — o primeiro relacionamento assumido depois do fim com Yuri Lima. E por falar em novela: Mourinho disse que contou a Vinicius Jr. que "o maior jogador da história do Benfica era negro" como argumento após a acusação de racismo. Ficou… estranho. A internet não perdoou! 😅
+        <br><a href="https://ofuxico.com.br/" target="_blank">→ Mais babado no OFuxico</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CLIMA ══════════ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">🌤️</span>
+    <span class="section-title">Previsão do Tempo</span>
+    <span class="section-sub">Hoje — 19/02</span>
+  </div>
+  <div class="section-body">
+    <div class="weather-grid">
+
+      <div class="weather-card">
+        <div class="weather-city">📍 Maringá — PR</div>
+        <div class="weather-temp">33°</div>
+        <div class="weather-desc">⛅ Parcialmente nublado</div>
+        <div style="font-size:11px;color:#888;margin-top:4px;">Chuva amanhã: 65%</div>
+      </div>
+
+      <div class="weather-card">
+        <div class="weather-city">📍 São Paulo — SP</div>
+        <div class="weather-temp">26°</div>
+        <div class="weather-desc">🌦️ Garoa / chuva fraca</div>
+        <div style="font-size:11px;color:#888;margin-top:4px;">Chuva hoje: 55%</div>
+      </div>
+
+      <div class="weather-card">
+        <div class="weather-city">📍 Itu — SP</div>
+        <div class="weather-temp">30°</div>
+        <div class="weather-desc">⛅ Parcialmente ensolarado</div>
+        <div style="font-size:11px;color:#888;margin-top:4px;">Chuva hoje: 25%</div>
+      </div>
+
+      <div class="weather-card">
+        <div class="weather-city">📍 Ponta Grossa — PR</div>
+        <div class="weather-temp">29°</div>
+        <div class="weather-desc">☀️ Ensolarado</div>
+        <div style="font-size:11px;color:#888;margin-top:4px;">Chuva amanhã: 65%</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-grito">Vaiiiiii Fiiiiiisssscccallllllll 🔍🔎</div>
+  <div class="footer-sub">Fiscal de Minuto · Edição 001 · 19.02.2026</div>
+</footer>
+
+</body>
+</html>
