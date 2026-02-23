@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🔍 Fiscal de Minuto — 20/02/2026</title>
+  <title>🔍 Fiscal de Minuto — 23/02/2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -156,10 +156,38 @@
     }
     .news-card.world  { border-left-color: var(--blue); }
     .news-card.fofoca { border-left-color: var(--purple); }
+    .news-card.promo  { border-left-color: var(--green); }
     .news-card:last-child { margin-bottom: 0; }
     .news-card .card-title { color: var(--black); }
     .news-card .card-body  { color: #444; }
     .news-card .card-label { color: #888; }
+
+    /* ── PROMO CARD ── */
+    .promo-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .promo-card:last-child { margin-bottom: 0; }
+    .promo-emoji { font-size: 32px; flex-shrink: 0; }
+    .promo-content { flex: 1; }
+    .promo-store { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 2px; }
+    .promo-title { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+    .promo-link {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px; font-weight: 600;
+      padding: 5px 12px; border-radius: 4px;
+      text-decoration: none; letter-spacing: 1px;
+      margin-top: 6px;
+    }
 
     /* ── WEATHER ── */
     .weather-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -181,6 +209,7 @@
     @media (max-width: 480px) {
       .weather-grid { grid-template-columns: 1fr 1fr; }
       .match-score  { font-size: 20px; padding: 0 10px; }
+      .promo-card   { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -188,9 +217,9 @@
 
 <!-- ══ HEADER ══ -->
 <header>
-  <div class="header-label">Edição Nº 001 — Sexta-feira</div>
+  <div class="header-label">Edição Nº 002 — Segunda-feira</div>
   <div class="header-title">🔍 FISCAL<br>DE MINUTO</div>
-  <div class="header-date">20 de Fevereiro de 2026 &nbsp;·&nbsp; O resumo do dia em tempo recorde</div>
+  <div class="header-date">23 de Fevereiro de 2026 &nbsp;·&nbsp; O resumo do dia em tempo recorde</div>
 </header>
 
 <!-- ══ CS2 ══ -->
@@ -198,52 +227,81 @@
   <div class="section-header">
     <span class="section-emoji">🔫</span>
     <span class="section-title">CS 2</span>
-    <span class="section-sub">PGL Cluj-Napoca 2026</span>
+    <span class="section-sub">PGL Cluj-Napoca 2026 — Encerrado</span>
   </div>
   <div class="section-body">
 
-    <div class="sub-label" style="padding-bottom:8px;">🔥 Quartas de Final — Hoje · BT Arena, Romênia</div>
-
-    <div class="match-card">
-      <div class="match-team" style="opacity:0.5;">Falcons 🇸🇦</div>
-      <div style="text-align:center">
-        <div class="match-score">1 — 2</div>
-        <div class="match-info">PARIVISION avança! 🎉</div>
-      </div>
-      <div class="match-team right"><strong>PARIVISION 🇷🇺</strong></div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team">MOUZ 🇩🇪</div>
-      <div style="text-align:center">
-        <div class="match-time">08h00</div>
-        <div class="match-info">BT Arena — RO</div>
-      </div>
-      <div class="match-team right">Natus Vincere 🇺🇦</div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team">Vitality 🇫🇷</div>
-      <div style="text-align:center">
-        <div class="match-time">11h00</div>
-        <div class="match-info">BT Arena — RO</div>
-      </div>
-      <div class="match-team right">Aurora 🇵🇱</div>
-    </div>
+    <div class="sub-label" style="padding-bottom:8px;">🏆 Grande Final — Domingo (22/02) · BT Arena</div>
 
     <div class="match-card" style="border: 2px solid #f5c400;">
-      <div class="match-team">FÚRIA 🇧🇷</div>
+      <div class="match-team" style="opacity:0.5;">PARIVISION 🇷🇺</div>
       <div style="text-align:center">
-        <div class="match-time">14h00</div>
-        <div class="match-info">BT Arena — RO</div>
+        <div class="match-score">0 — 3</div>
+        <div class="match-info">🏆 Vitality campeã! (MD5)</div>
       </div>
-      <div class="match-team right">The MongolZ 🇲🇳</div>
+      <div class="match-team right"><strong>Vitality 🇫🇷</strong></div>
     </div>
 
     <div class="card">
       <div class="card-body">
-        A FÚRIA chega com campanha de 3V-1D na fase de grupos e <strong>5 vitórias seguidas</strong> contra os MongolZ no histórico. Em caso de vitória, enfrenta o vencedor de Vitality x Aurora na semifinal de amanhã (21). Grande Final no domingo (22) às 13h em formato MD5. 💰 Prize pool total: US$ 1,25 milhão.
-        <br><a href="https://www.hltv.org/events/8047/pgl-cluj-napoca-2026" target="_blank">→ Acompanhe ao vivo no HLTV.org</a>
+        A <strong>Vitality</strong> conquistou o título da PGL Cluj-Napoca 2026 em grande estilo, vencendo a PARIVISION por 2 a 0 na final. ZywOo foi eleito MVP do torneio — sua 30ª conquista individual no circuito. A PARIVISION chegou surpreendendo, eliminando Falcons nas quartas e MOUZ na semifinal.
+      </div>
+    </div>
+
+    <div class="sub-label" style="padding-top:14px; padding-bottom:8px;">📋 Resumo dos Playoffs</div>
+
+    <div class="match-card">
+      <div class="match-team" style="opacity:0.5;">FÚRIA 🇧🇷</div>
+      <div style="text-align:center">
+        <div class="match-score">1 — 2</div>
+        <div class="match-info">Quartas · Eliminados 😔</div>
+      </div>
+      <div class="match-team right">The MongolZ 🇲🇳</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team" style="opacity:0.5;">MOUZ 🇩🇪</div>
+      <div style="text-align:center">
+        <div class="match-score">0 — 2</div>
+        <div class="match-info">Quartas</div>
+      </div>
+      <div class="match-team right">PARIVISION 🇷🇺</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team" style="opacity:0.5;">The MongolZ 🇲🇳</div>
+      <div style="text-align:center">
+        <div class="match-score">0 — 2</div>
+        <div class="match-info">Semifinal</div>
+      </div>
+      <div class="match-team right">Vitality 🇫🇷</div>
+    </div>
+
+    <div class="card" style="margin-top:10px;">
+      <div class="card-body">
+        😔 A FÚRIA terminou em 5º/8º lugar, levando US$ 50 mil de premiação. A eliminação foi dura: MongolZ venceu os dois primeiros halves por 9-3 em todos os mapas. Yuurih foi o mais consistente com 1.03 de rating. Próximo compromisso: ESL Pro League S23 a partir de 6 de março.
+        <br><a href="https://www.hltv.org/events/8047/pgl-cluj-napoca-2026" target="_blank">→ Bracket completo no HLTV.org</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ ESPORTES ══ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">🏓</span>
+    <span class="section-title">Esportes</span>
+    <span class="section-sub">Destaque do dia</span>
+  </div>
+  <div class="section-body">
+
+    <div class="news-card" style="border-left-color: #f5c400;">
+      <div class="card-label">🇧🇷 Tênis de Mesa · WTT Singapura Smash 2026</div>
+      <div class="card-title">Hugo Calderano estreia com vitória e avança no Grand Smash de Singapura</div>
+      <div class="card-body">
+        O brasileiro <strong>Hugo Calderano</strong>, nº 2 do mundo, venceu o alemão Ricardo Walther (71º) por <strong>3 sets a 1</strong> na estreia do WTT Singapura Smash 2026, com parciais de 11/6, 9/11, 11/7 e 11/4. A partida durou apenas 29 minutos. Calderano chega embalado pelo título da Copa América de tênis de mesa, conquistado no início de fevereiro. Na segunda fase, ele enfrentará o honconguês Wong Chun Ting (50º). O Grand Smash distribui <strong>US$ 1,55 milhão</strong> em premiação — o maior do circuito mundial.
+        <br><a href="https://sportbuzz.com.br/outros-esportes/2026/02/23/calderano-estreia-com-vitoria-do-singapura-smash/" target="_blank">→ Leia mais no Sportbuzz</a>
       </div>
     </div>
 
@@ -258,45 +316,53 @@
   </div>
   <div class="section-body">
 
-    <!-- RESULTADOS DE ONTEM -->
-    <div class="sub-label">📋 Resultados de Ontem — 19/02</div>
-
-    <div class="sub-label" style="padding-top:4px; padding-bottom:6px;">🇧🇷 Brasileirão Betano · 2ª Rodada</div>
+    <div class="sub-label">📋 Paulistão — Quartas de Final (fim de semana)</div>
 
     <div class="match-card">
-      <div class="match-team">Athletico-PR</div>
+      <div class="match-team">Red Bull Bragantino</div>
       <div style="text-align:center">
-        <div class="match-score">0 — 1</div>
-        <div class="match-info">Arena da Baixada · ⚽ Garro (21')</div>
+        <div class="match-score">1 — 2</div>
+        <div class="match-info">Sáb 21/02 · 18h30</div>
+      </div>
+      <div class="match-team right">São Paulo</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Palmeiras</div>
+      <div style="text-align:center">
+        <div class="match-score">4 — 0</div>
+        <div class="match-info">Sáb 21/02 · 20h30 · Arena Barueri</div>
+      </div>
+      <div class="match-team right" style="opacity:0.5;">Capivariano</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team">Novorizontino</div>
+      <div style="text-align:center">
+        <div class="match-score">2 — 1</div>
+        <div class="match-info">Dom 22/02 · 16h00</div>
+      </div>
+      <div class="match-team right" style="opacity:0.5;">Santos</div>
+    </div>
+
+    <div class="match-card">
+      <div class="match-team" style="opacity:0.5;">Portuguesa</div>
+      <div style="text-align:center">
+        <div class="match-score">1 — 1</div>
+        <div class="match-info">Dom 22/02 · Canindé · pen. 7×8</div>
       </div>
       <div class="match-team right">Corinthians</div>
     </div>
 
-    <div class="sub-label" style="padding-top:14px; padding-bottom:6px;">🏆 Recopa Sul-Americana · Jogo de Ida</div>
-
-    <div class="match-card">
-      <div class="match-team">Lanús 🇦🇷</div>
-      <div style="text-align:center">
-        <div class="match-score">1 — 0</div>
-        <div class="match-info">La Fortaleza — ARG · ⚽ Castillo (2ºT)</div>
-      </div>
-      <div class="match-team right">Flamengo 🔴⚫</div>
-    </div>
     <div class="card" style="margin-top:8px;">
       <div class="card-body">
-        ⚠️ Lanús abriu vantagem. Flamengo precisa vencer por 2+ gols na volta para levantar a taça no tempo normal. A volta é na próxima quinta (26/02), no Maracanã.
+        ✅ <strong>Semifinalistas:</strong> Palmeiras, São Paulo, Novorizontino e Corinthians. O Timão se classificou nos pênaltis com brilho do goleiro Hugo Souza (2 defesas). Gol de Vitinho nos acréscimos empatou em 1 a 1. <br>
+        📅 <strong>Semis (data a confirmar):</strong> Jogo único. Novorizontino recebe o Corinthians · Palmeiras recebe o São Paulo.<br>
+        Mandantes: <strong>Novorizontino e Palmeiras</strong>.<br>
+        📅 <strong>Final:</strong> data a confirmar (ida e volta).
       </div>
     </div>
 
-    <div class="sub-label" style="padding-top:14px; padding-bottom:6px;">🏆 Paulistão Casas Bahia · Quartas de Final</div>
-    <div class="card">
-      <div class="card-body">
-        A primeira fase terminou no dia 15/02. Os 8 classificados para as quartas são: <strong>Novorizontino, Palmeiras, Red Bull Bragantino, Portuguesa, Corinthians, São Paulo, Capivariano e Santos</strong>. Destaques da última rodada: Santos 6 x 0 Velo Clube, com <strong>Neymar e Gabigol</strong> juntos pela primeira vez em 13 anos. Confrontos das quartas:
-        <br>📅 <strong>21/02 (sáb)</strong> — Palmeiras x Capivariano (20h30) · Bragantino x São Paulo (18h30)
-        <br>📅 <strong>22/02 (dom)</strong> — Novorizontino x Santos (16h) · Portuguesa x Corinthians (20h30)
-        <br><a href="https://www.flashscore.com.br/futebol/brasil/paulista/" target="_blank">→ Tabela completa no Flashscore</a>
-      </div>
-    </div>
 
 
   </div>
@@ -307,76 +373,72 @@
   <div class="section-header">
     <span class="section-emoji">💰</span>
     <span class="section-title">Finanças</span>
-    <span class="section-sub">Dados de hoje — 20/02</span>
+    <span class="section-sub">Dados de hoje — 23/02</span>
   </div>
   <div class="section-body">
 
-    <!-- Índices principais -->
     <div class="sub-label" style="padding-bottom:6px;">📊 Índices</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
 
       <div class="weather-card" style="padding:12px 14px;">
         <div class="weather-city">IBOVESPA</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">186.519</div>
-        <div style="font-size:12px; color:#d9534f; font-weight:600;">▼ -0,24%</div>
-        <div class="weather-extra">pts · pregão em andamento</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">186.800</div>
+        <div style="font-size:12px; color:#d9534f; font-weight:600;">▼ -2,0% aprox.</div>
+        <div class="weather-extra">pts · pressão das tarifas Trump ⚠️</div>
       </div>
 
       <div class="weather-card" style="padding:12px 14px;">
         <div class="weather-city">IFIX · Fund. Imob.</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">3.849</div>
-        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +0,44%</div>
-        <div class="weather-extra">pts · pregão em andamento</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">3.862</div>
+        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +0,34%</div>
+        <div class="weather-extra">pts · dados preliminares</div>
       </div>
 
     </div>
 
-    <!-- Câmbio e Cripto -->
     <div class="sub-label" style="padding-bottom:6px;">💱 Câmbio & Cripto</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
 
       <div class="weather-card" style="padding:12px 14px;">
         <div class="weather-city">🇺🇸 DÓLAR (USD)</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">R$ 5,23</div>
-        <div style="font-size:12px; color:#d9534f; font-weight:600;">▲ +0,33%</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">R$ 5,28</div>
+        <div style="font-size:12px; color:#d9534f; font-weight:600;">▲ +0,38%</div>
         <div class="weather-extra">cotação comercial</div>
       </div>
 
       <div class="weather-card" style="padding:12px 14px;">
         <div class="weather-city">₿ BITCOIN (BTC)</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">R$ 351k</div>
-        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +0,89%</div>
-        <div class="weather-extra">≈ US$ 67.243 · 24h</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">R$ 341k</div>
+        <div style="font-size:12px; color:#d9534f; font-weight:600;">▼ -3,1%</div>
+        <div class="weather-extra">≈ US$ 64.700 · 24h</div>
       </div>
 
     </div>
 
-    <!-- Alta / Baixa do dia -->
     <div class="sub-label" style="padding-bottom:6px;">📈 Ação do Dia</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
 
       <div class="weather-card" style="padding:12px 14px; border-left: 4px solid #5cb85c;">
         <div class="weather-city">🏆 Maior Alta</div>
         <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:700; color:var(--black);">PETR4</div>
-        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +1,83% hoje</div>
-        <div class="weather-extra">Petrobras — alta do petróleo (EUA × Irã)</div>
+        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +1,83%</div>
+        <div class="weather-extra">Petrobras — alta do petróleo</div>
       </div>
 
       <div class="weather-card" style="padding:12px 14px; border-left: 4px solid #d9534f;">
         <div class="weather-city">📉 Maior Queda</div>
         <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:700; color:var(--black);">VALE3</div>
-        <div style="font-size:12px; color:#d9534f; font-weight:600;">▼ -2,5% hoje</div>
-        <div class="weather-extra">Vale — prejuízo de US$ 4,2 bi no 4T25</div>
+        <div style="font-size:12px; color:#d9534f; font-weight:600;">▼ -2,5%</div>
+        <div class="weather-extra">Vale — prejuízo no 4T25</div>
       </div>
 
     </div>
 
-    <!-- Destaque FII -->
     <div class="sub-label" style="padding-bottom:6px;">🏢 Destaque FII</div>
     <div class="card">
       <div class="card-label">XPML11 · Shoppings</div>
-      <div class="card-title">XP Malls paga R$ 0,92/cota em fevereiro — rendimento isento pelo 22º mês</div>
-      <div class="card-body">O XPML11 confirmou dividendo de <strong>R$ 0,92 por cota</strong> referente a janeiro de 2026, com pagamento em 25/02. Quem estava posicionado até 18/02 recebe. O DY mensal ficou em 0,83% sobre a cota média de R$ 110,75. Os rendimentos seguem isentos de IR para pessoa física. O fundo investe em shoppings e mantém vacância próxima de 4,3%.<br><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/cotacoes/" target="_blank">→ Dados completos na B3</a></div>
+      <div class="card-title">XP Malls paga R$ 0,92/cota — rendimento isento pelo 22º mês</div>
+      <div class="card-body">O XPML11 confirmou dividendo de <strong>R$ 0,92 por cota</strong> referente a janeiro de 2026, com pagamento em 25/02 para quem estava posicionado até 18/02. DY mensal de 0,83%. Rendimentos isentos de IR para pessoa física. Vacância próxima de 4,3%.<br><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/cotacoes/" target="_blank">→ Dados completos na B3</a></div>
     </div>
 
   </div>
@@ -393,19 +455,17 @@
 
     <div class="news-card">
       <div class="card-label">Política</div>
-      <div class="card-title">Desfile sobre Lula no Carnaval vira disputa judicial</div>
+      <div class="card-title">STF retoma julgamentos após recesso do Carnaval</div>
       <div class="card-body">
-        A escola Acadêmicos de Niterói homenageou o presidente Lula no Grupo Especial. Partidos de oposição acionaram a Justiça Eleitoral alegando propaganda antecipada. TSE analisa o caso.
-        <br><a href="https://revistaoeste.com/brasil/" target="_blank">→ Leia mais na Revista Oeste</a>
+        O Supremo Tribunal Federal retoma a agenda de julgamentos nesta segunda-feira após o recesso do Carnaval. Entre os temas previstos para a semana estão ações sobre marco fiscal e disputas eleitorais municipais.
       </div>
     </div>
 
     <div class="news-card">
-      <div class="card-label">Eleições 2026</div>
-      <div class="card-title">Pesquisa: 53% confiam nas urnas eletrônicas, 43% desconfiam</div>
+      <div class="card-label">Economia</div>
+      <div class="card-title">Ibovespa bate nova máxima histórica — alta acumulada de 18% em 2026</div>
       <div class="card-body">
-        Levantamento da Genial/Quaest ouviu mais de 2 mil eleitores. A polarização em torno do sistema eleitoral segue alta a menos de um ano das eleições presidenciais.
-        <br><a href="https://revistaoeste.com/brasil/" target="_blank">→ Leia mais na Revista Oeste</a>
+        O índice Ibovespa encerrou a semana passada acima dos 190 mil pontos pela primeira vez na história, acumulando alta de <strong>18,25%</strong> desde o início de 2026. Analistas apontam o fluxo de capital estrangeiro e o cenário de queda do dólar como principais vetores da valorização.
       </div>
     </div>
 
@@ -422,50 +482,70 @@
   <div class="section-body">
 
     <div class="news-card world">
-      <div class="card-label">Esportes / Racismo</div>
-      <div class="card-title">Vini Jr. para Champions por 10 minutos após acusação de racismo contra jogador do Benfica</div>
+      <div class="card-label">Tecnologia</div>
+      <div class="card-title">Bitcoin cai mais de 17% em fevereiro — criptomoeda opera abaixo de US$ 70 mil</div>
       <div class="card-body">
-        No Estádio da Luz em Lisboa, Vinicius Jr. acusou o argentino Prestianni de ofensa racial após marcar um golaço. UEFA abriu investigação. Mbappé, Trent Alexander-Arnold e a CBF manifestaram apoio ao brasileiro. O técnico Mourinho tentou relativizar e virou alvo de críticas na internet.
-        <br><a href="https://revistaoeste.com/mundo/" target="_blank">→ Leia mais na Revista Oeste</a>
+        O Bitcoin acumula queda superior a 17% em fevereiro, operando na faixa de US$ 65-67 mil. Analistas apontam incertezas regulatórias e realização de lucro após máximas históricas como causas do movimento. A criptomoeda testou suporte na região dos US$ 60 mil recentemente.
       </div>
     </div>
 
     <div class="news-card world">
       <div class="card-label">Geopolítica</div>
-      <div class="card-title">EUA e Irã negociam sobre programa nuclear em Genebra</div>
+      <div class="card-title">França sobrevive a votos de desconfiança e avança com orçamento de 2026</div>
       <div class="card-body">
-        Negociações começaram esta semana com mediação de Omã. Tensão permanece alta enquanto Israel sinaliza que pode agir militarmente caso as conversas fracassem.
-        <br><a href="https://revistaoeste.com/mundo/" target="_blank">→ Leia mais na Revista Oeste</a>
+        O governo francês sobreviveu a dois votos de desconfiança no Parlamento, superando moções tanto da extrema-esquerda (LFI) quanto da extrema-direita (Reunião Nacional). Com isso, a França deve finalmente aprovar seu orçamento para 2026 após meses de impasse político.
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══ FOFOCA ══ -->
+<!-- ══ FOFOCA DO FISCAL ══ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🗣️</span>
     <span class="section-title">Fofoca do Fiscal</span>
-    <span class="section-sub">Puro babado</span>
+    <span class="section-sub">😏 imperdível</span>
   </div>
   <div class="section-body">
 
     <div class="news-card fofoca">
-      <div class="card-label">Celebridades</div>
-      <div class="card-title">Bruna Marquezine e Shawn Mendes: o casal do Carnaval 2026 👀</div>
+      <div class="card-label">Entretenimento · BBB 26</div>
+      <div class="card-title">Carnaval agita os famosos — e o BBB continua fervilhando</div>
       <div class="card-body">
-        Flagrados aos beijos no trio de Ivete Sangalo em Salvador. Ivete já chamou Shawn de "meu genro". A mídia internacional foi à loucura — o cantor canadense virou assunto no Brasil inteiro no Valentine's Day.
-        <br><a href="https://ofuxico.com.br/" target="_blank">→ Todo o babado no OFuxico</a>
+        O Carnaval de Salvador e Rio agitou as redes sociais com aparições de famosos nos trios e camarotes. O BBB26 segue no ar com a casa virada após o recesso do Carnaval — novas formações de paredão e alianças estão sendo reconfiguradas.
       </div>
     </div>
 
-    <div class="news-card fofoca">
-      <div class="card-label">BBB 26 & Fama</div>
-      <div class="card-title">IZA assume novo amor na Sapucaí e Mourinho vira meme com comentário sobre racismo 😅</div>
-      <div class="card-body">
-        IZA foi flagrada aos beijos com o ator João Vitor Silva no Carnaval do Rio — primeiro relacionamento assumido após o fim com Yuri Lima. Já Mourinho disse a Vinicius Jr. que "o maior jogador da história do Benfica era negro" como argumento após a acusação de racismo. A internet não perdoou.
-        <br><a href="https://ofuxico.com.br/" target="_blank">→ Mais babado no OFuxico</a>
+  </div>
+</section>
+
+<!-- ══ FISCAL DA PROMO ══ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">🛍️</span>
+    <span class="section-title">Fiscal da Promo</span>
+    <span class="section-sub">seleção da semana</span>
+  </div>
+  <div class="section-body">
+
+    <div class="promo-card">
+      <div class="promo-emoji">👕</div>
+      <div class="promo-content">
+        <div class="promo-store">Loja Oficial Insider · Mercado Livre</div>
+        <div class="promo-title">Camiseta Henley Core Masculino — Insider</div>
+        <div class="card-body" style="margin-top:4px;">Visual elegante com textura premium. A Henley Core é corte slim, perfeita para o dia a dia com estilo. Confira na loja oficial.</div>
+        <a href="https://mercadolivre.com/sec/2y9AWNS" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
+      </div>
+    </div>
+
+    <div class="promo-card">
+      <div class="promo-emoji">🖤</div>
+      <div class="promo-content">
+        <div class="promo-store">Loja Oficial Insider · Mercado Livre</div>
+        <div class="promo-title">Tech T-shirt Insider Heavy Masculino</div>
+        <div class="card-body" style="margin-top:4px;">Tecido técnico pesado para quem não abre mão de conforto e identidade. Perfeita para academia ou estilo urbano.</div>
+        <a href="https://mercadolivre.com/sec/2S5pr1D" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
       </div>
     </div>
 
@@ -477,44 +557,44 @@
   <div class="section-header">
     <span class="section-emoji">🌤️</span>
     <span class="section-title">Previsão do Tempo</span>
-    <span class="section-sub">Hoje — 20/02</span>
+    <span class="section-sub">Hoje — 23/02</span>
   </div>
   <div class="section-body">
     <div class="weather-grid">
 
       <div class="weather-card">
         <div class="weather-city">📍 Maringá — PR</div>
-        <div class="weather-desc">🌧️ Chuva à tarde</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">19° – 34°</div>
-        <div class="weather-extra">Chuva: 96% ☔</div>
+        <div class="weather-desc">☁️ Tempo nublado</div>
+        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">19° – 27°</div>
+        <div class="weather-extra">Chuva: 26% 🌤️</div>
       </div>
 
       <div class="weather-card">
         <div class="weather-city">📍 São Paulo — SP</div>
-        <div class="weather-desc">⛅ Parcialmente nublado</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">18° – 28°</div>
-        <div class="weather-extra">Chuva: 60% ☔</div>
+        <div class="weather-desc">🌧️ Chuva ao longo do dia</div>
+        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">19° – 26°</div>
+        <div class="weather-extra">Chuva: 90% ☔</div>
       </div>
 
       <div class="weather-card">
         <div class="weather-city">📍 Itu — SP</div>
-        <div class="weather-desc">🌦️ Chuvas esparsas</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">20° – 30°</div>
-        <div class="weather-extra">Chuva: 83% ☔</div>
+        <div class="weather-desc">🌧️ Chuvas esparsas</div>
+        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">20° – 29°</div>
+        <div class="weather-extra">Chuva: 90% ☔</div>
       </div>
 
       <div class="weather-card">
         <div class="weather-city">📍 Indaiatuba — SP</div>
         <div class="weather-desc">🌧️ Chuva à tarde</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">20° – 29°</div>
-        <div class="weather-extra">Chuva: 80% ☔</div>
+        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">19° – 28°</div>
+        <div class="weather-extra">Chuva: 85% ☔</div>
       </div>
 
       <div class="weather-card">
         <div class="weather-city">📍 Pato Branco — PR</div>
-        <div class="weather-desc">⛅ Sol com pancadas</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">21° – 30°</div>
-        <div class="weather-extra">Chuva: 65% ☔</div>
+        <div class="weather-desc">⛅ Sol com pancadas à tarde</div>
+        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">18° – 25°</div>
+        <div class="weather-extra">Chuva: 40% 🌤️</div>
       </div>
 
     </div>
@@ -523,8 +603,8 @@
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <div class="footer-grito">Vaiiiiii Fiiiiiisssscccallllllll 🔍🔎</div>
-  <div class="footer-sub">Fiscal de Minuto · Edição 001 · 20.02.2026</div>
+  <div class="footer-grito">VAIII FISCALLLLL! 🔍🔥</div>
+  <div class="footer-sub">Edição 002 · 23 de fevereiro de 2026 · fiscaldeminuto.github.io</div>
 </footer>
 
 </body>
