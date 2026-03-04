@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🔍 Fiscal de Minuto — 25/02/2026</title>
+  <title>🔍 Fiscal de Minuto — 04/03/2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -15,6 +15,7 @@
       --blue:    #3a86ff;
       --purple:  #a855f7;
       --gray:    #2a2a2a;
+      --orange:  #ff6b00;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -65,10 +66,11 @@
     /* ── SECTIONS ── */
     section { margin: 0; background: var(--offwhite); border-bottom: 1px solid #d8d4cc; }
 
+    /* Fundo preto + texto amarelo em todos os headers de seção */
     .section-header {
       display: flex; align-items: center; gap: 10px;
       padding: 18px 24px 12px;
-      background: var(--gray);
+      background: var(--black);
     }
     .section-emoji { font-size: 20px; }
     .section-title {
@@ -78,18 +80,27 @@
     .section-sub {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px; letter-spacing: 2px;
-      color: #888; margin-left: auto; text-transform: uppercase;
+      color: #666; margin-left: auto; text-transform: uppercase;
     }
     .section-body { padding: 16px 24px 20px; }
 
-    /* ── SUB-LABEL ── */
+    /* ── SUB-LABEL — destaque para subtítulos de bloco ── */
+    .sub-wrap { margin-top: 20px; margin-bottom: 10px; }
+    .sub-wrap:first-child { margin-top: 0; }
     .sub-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px; letter-spacing: 2px;
-      text-transform: uppercase; color: #888;
-      padding: 0 0 8px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px; letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--gray);
+      padding: 5px 12px;
+      border-radius: 4px;
+      display: inline-block;
     }
-    .sub-label + .sub-label, .match-card + .sub-label { padding-top: 18px; }
+    /* variante destaque amarelo para subheaders urgentes */
+    .sub-label.hot {
+      background: var(--red);
+    }
 
     /* ── CARDS ── */
     .card {
@@ -114,19 +125,6 @@
     }
     .card-body a:hover { border-color: #b89200; }
 
-    /* ── TAGS ── */
-    .tag {
-      display: inline-block;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px; letter-spacing: 1px;
-      padding: 2px 8px; border-radius: 3px;
-      margin-bottom: 6px; text-transform: uppercase; font-weight: 600;
-    }
-    .tag-amanha   { background: var(--yellow); color: var(--black); }
-    .tag-hoje     { background: #ff8c00; color: #fff; }
-    .tag-resultado{ background: #d4f0dd; color: #1a6e35; }
-    .tag-aviso    { background: #fff3cd; color: #856404; }
-
     /* ── MATCH CARD ── */
     .match-card {
       display: flex; align-items: center; justify-content: space-between;
@@ -143,8 +141,7 @@
       padding: 0 16px; min-width: 80px; text-align: center;
     }
     .match-score.pending { color: #999; font-size: 16px; padding-top: 4px; }
-    .match-time  { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--blue); text-align: center; }
-    .match-info  { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888; text-align: center; margin-top: 2px; }
+    .match-info { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888; text-align: center; margin-top: 2px; }
 
     /* ── NEWS CARDS ── */
     .news-card {
@@ -156,7 +153,10 @@
     }
     .news-card.world  { border-left-color: var(--blue); }
     .news-card.fofoca { border-left-color: var(--purple); }
-    .news-card.promo  { border-left-color: var(--green); }
+    .news-card.honor  { border-left-color: var(--purple); }
+    .news-card.esports{ border-left-color: var(--blue); }
+    .news-card.green  { border-left-color: var(--green); }
+    .news-card.warn   { border-left-color: var(--orange); }
     .news-card:last-child { margin-bottom: 0; }
     .news-card .card-title { color: var(--black); }
     .news-card .card-body  { color: #444; }
@@ -189,17 +189,18 @@
       margin-top: 6px;
     }
 
-    /* ── WEATHER ── */
-    .weather-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .weather-card {
-      background: #fff; border: 1px solid #ddd;
-      border-radius: 6px; padding: 14px 16px;
-      display: flex; flex-direction: column; gap: 4px;
+    /* ── FINAL BANNER ── */
+    .final-banner {
+      background: var(--black);
+      color: var(--yellow);
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(15px, 3.5vw, 22px);
+      letter-spacing: 3px;
+      margin-bottom: 10px;
     }
-    .weather-city { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #888; }
-    .weather-temp { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--black); line-height: 1; }
-    .weather-desc { font-size: 12px; color: #555; }
-    .weather-extra{ font-size: 11px; color: #888; margin-top: 4px; }
 
     /* ── FOOTER ── */
     footer { background: var(--yellow); padding: 24px; text-align: center; }
@@ -207,7 +208,6 @@
     .footer-sub   { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--black); opacity: .5; margin-top: 8px; letter-spacing: 2px; }
 
     @media (max-width: 480px) {
-      .weather-grid { grid-template-columns: 1fr 1fr; }
       .match-score  { font-size: 20px; padding: 0 10px; }
       .promo-card   { flex-direction: column; align-items: flex-start; }
     }
@@ -217,193 +217,169 @@
 
 <!-- ══ HEADER ══ -->
 <header>
-  <div class="header-label">Edição Nº 003 — Quarta-feira</div>
+  <div class="header-label">Edição Nº 004 — Quarta-feira</div>
   <div class="header-title">🔍 FISCAL<br>DE MINUTO</div>
-  <div class="header-date">25 de Fevereiro de 2026 &nbsp;·&nbsp; O resumo do dia em tempo recorde</div>
+  <div class="header-date">04 de Março de 2026 &nbsp;·&nbsp; O resumo do dia em tempo recorde</div>
 </header>
 
 
+<!-- ══════════════════════════════════════════ -->
+<!-- 1. E-SPORTS                               -->
+<!-- ══════════════════════════════════════════ -->
+<section>
+  <div class="section-header">
+    <span class="section-emoji">🎮</span>
+    <span class="section-title">E-sports</span>
+    <span class="section-sub">CS2 · ESL Pro League S23</span>
+  </div>
+  <div class="section-body">
 
-<!-- ══ ESPORTES ══ -->
+    <div class="sub-wrap">
+      <span class="sub-label">🏆 ESL Pro League Season 23 — Stage 1</span>
+    </div>
+
+    <div class="news-card esports">
+      <div class="card-label">CS2 · Legacy · Estreia com Art</div>
+      <div class="card-title">Legacy varre a fase 3–0 e já está classificada — bem-vindo, Art! 🇧🇷</div>
+      <div class="card-body">
+        A <strong>Legacy</strong> entrou na ESL Pro League S23 de forma impecável: <strong>3 vitórias em 3 jogos</strong>, se classificando antecipadamente para o Stage 2. Foi a primeira participação do jovem <strong>Andrei "Art" Piovezan</strong> pela equipe brasileira. Início perfeito para a nova geração. 🔥
+      </div>
+    </div>
+
+    <div class="sub-wrap">
+      <span class="sub-label">⚔️ Confrontos de Hoje</span>
+    </div>
+
+    <div class="match-card" style="border: 2px solid var(--red);">
+      <div class="match-team"><strong>Gaimin Gladiators 🐊</strong></div>
+      <div style="text-align:center">
+        <div class="match-score pending">🕛 12h00</div>
+        <div class="match-info">Campanha 1–2 · Eliminação em jogo</div>
+      </div>
+      <div class="match-team right">NIP 🇸🇪</div>
+    </div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-body">
+        🐊 A <strong>Gaimin Gladiators</strong> é o time do <strong>felps e Hen1</strong>, o Jacaré. Estão com campanha 1–2 — quem perder hoje está fora do torneio.
+      </div>
+    </div>
+
+    <div class="match-card" style="border: 2px solid var(--orange);">
+      <div class="match-team"><strong>paiN Gaming 🇧🇷</strong></div>
+      <div style="text-align:center">
+        <div class="match-score pending">🕑 14h30</div>
+        <div class="match-info">Campanha 2–1 · Vencedor vai ao Stage 2</div>
+      </div>
+      <div class="match-team right"><strong>G2 Esports 🇪🇺</strong></div>
+    </div>
+
+    <div class="card">
+      <div class="card-body" style="border-left: 3px solid var(--yellow); padding-left: 10px;">
+        📅 <strong>FÚRIA no Stage 2!</strong> Garantida pelo ranking, a FÚRIA faz sua estreia na <strong>sexta-feira, 06/03</strong>.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 2. ESPORTES                               -->
+<!-- ══════════════════════════════════════════ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">⚽</span>
     <span class="section-title">Esportes</span>
-    <span class="section-sub">Resultados de ontem + agenda de hoje</span>
+    <span class="section-sub">Jogos de hoje + resultados</span>
   </div>
   <div class="section-body">
 
-    <!-- Copa do Brasil -->
-    <div class="sub-label" style="padding-bottom:8px;">🏆 Copa do Brasil — 2ª Fase · 24/02 (ontem)</div>
-
-    <div class="match-card">
-      <div class="match-team" style="opacity:0.6;">Boavista 🇷🇯</div>
+    <!-- FINAL PAULISTÃO -->
+    <div class="sub-wrap" style="margin-top:0;">
+      <span class="sub-label hot">🏆 Final do Paulistão 2026 — Jogo 1 de 2 · Hoje</span>
+    </div>
+    <div class="final-banner">🏆 FINAL DO PAULISTÃO — É HOJE!</div>
+    <div class="match-card" style="border: 2px solid var(--yellow); margin-bottom:14px;">
+      <div class="match-team"><strong>Palmeiras 🟢</strong></div>
       <div style="text-align:center">
-        <div class="match-score">2 — 3</div>
-        <div class="match-info">✅ Maringá avança à 3ª fase 🐶</div>
+        <div class="match-score pending">🕗 20h00</div>
+        <div class="match-info">📍 Allianz Parque · Jogo 1/2</div>
       </div>
-      <div class="match-team right"><strong>Maringá 🇵🇷</strong></div>
+      <div class="match-team right"><strong>Novorizontino ⬛</strong></div>
     </div>
 
-    <div class="match-card">
-      <div class="match-team" style="opacity:0.6;">Joinville 🇸🇨</div>
+    <!-- COPA DO REI HOJE -->
+    <div class="sub-wrap">
+      <span class="sub-label">👑 Copa do Rei — Semifinal Volta · Hoje</span>
+    </div>
+    <div class="match-card" style="margin-bottom:14px;">
+      <div class="match-team"><strong>Real Sociedad 🇪🇸</strong></div>
       <div style="text-align:center">
-        <div class="match-score">1 — 0</div>
-        <div class="match-info">✅ Joinville avança</div>
+        <div class="match-score pending">🕔 17h00</div>
+        <div class="match-info">ESPN · Semifinal 2º jogo</div>
       </div>
-      <div class="match-team right">CSA 🇦🇱</div>
+      <div class="match-team right"><strong>Athletic Bilbao 🇪🇸</strong></div>
     </div>
 
-    <div class="match-card">
-      <div class="match-team" style="opacity:0.6;">Fortaleza 🇨🇪</div>
-      <div style="text-align:center">
-        <div class="match-score">4 — 3</div>
-        <div class="match-info">✅ Fortaleza avança (7 gols!)</div>
-      </div>
-      <div class="match-team right">Maguary 🇵🇪</div>
+    <!-- COPA DO REI RESULTADO -->
+    <div class="sub-wrap">
+      <span class="sub-label">📋 Copa do Rei — Resultado Recente</span>
     </div>
-
-    <div class="card">
+    <div class="match-card">
+      <div class="match-team" style="opacity:0.5;">FC Barcelona 🇪🇸</div>
+      <div style="text-align:center">
+        <div class="match-score">3 — 0</div>
+        <div class="match-info">✅ Atlético Madrid avança · Agg 4–3</div>
+      </div>
+      <div class="match-team right"><strong>Atlético de Madrid 🇪🇸</strong></div>
+    </div>
+    <div class="card" style="margin-bottom:14px;">
       <div class="card-body">
-        🐶 <strong>O Dogão é nosso!</strong> O <strong>Maringá FC</strong> virou motivo de festa hoje! Com gols de Negueba, Caíque Calito e Ronald Camarão, o time paranaense venceu o Boavista no Rio e avança à 3ª fase da Copa do Brasil. Aguarda o vencedor de Retrô x Uberlândia.
+        🔴⚪ Drama total! O Barça venceu por 3 a 0, mas o <strong>Atlético de Madrid</strong> segurou o agregado em 4–3 e está na final da Copa do Rei. Coração na boca até o apito final.
       </div>
     </div>
 
-    <!-- Agenda Copa do Brasil hoje -->
-    <div class="sub-label" style="padding-top:14px; padding-bottom:8px;">⏰ Copa do Brasil — Hoje (25/02)</div>
-    <div style="display:grid; grid-template-columns:1fr; gap:6px; margin-bottom:14px;">
-      <div style="background:#fff; border-radius:8px; padding:10px 12px; font-size:12px; border-left:3px solid #2c7be5;">
-        🕓 15h30 · Castanhal-PA x Guarani-SP | Juazeirense-BA x Capital-DF<br>
-        🕓 16h · Atlético-GO x Primavera-MT<br>
-        🕓 18h · Novorizontino-SP x Nacional-AM | São Luiz-RS x Maranhão-MA | Retrô-PE x Uberlândia-MG | Londrina-PR x Penedense-AL<br>
-        🕓 19h30 · Anápolis-GO x Cianorte-PR | Imperatriz-MA x Amazonas-AM<br>
-        🕓 20h · Gama-DF x Goiás-GO e mais 5 jogos
+    <!-- LIBERTADORES -->
+    <div class="sub-wrap">
+      <span class="sub-label">🏆 Libertadores 2026 — Fase de Grupos · Jogo 1/6</span>
+    </div>
+    <div class="match-card" style="margin-bottom:14px;">
+      <div class="match-team">Barcelona SC 🇪🇨</div>
+      <div style="text-align:center">
+        <div class="match-score">1 — 1</div>
+        <div class="match-info">Jogo 1 de 2 · Grupo ainda aberto</div>
       </div>
+      <div class="match-team right"><strong>Botafogo 🇷🇯</strong></div>
     </div>
 
-    <!-- Libertadores pré-fase -->
-    <div class="sub-label" style="padding-top:4px; padding-bottom:8px;">🏆 Pré-Libertadores 2026 — Volta · HOJE (25/02)</div>
-    <div class="card" style="margin-bottom:10px;">
+    <!-- INDIAN WELLS -->
+    <div class="sub-wrap">
+      <span class="sub-label">🎾 Indian Wells — 1º Masters 1000 da Temporada</span>
+    </div>
+    <div class="match-card" style="border: 2px solid #009c3b;">
+      <div class="match-team"><strong>João Fonseca 🇧🇷</strong></div>
+      <div style="text-align:center">
+        <div class="match-score pending">🕗 ~20h40</div>
+        <div class="match-info">ESPN · Disney+ · horário estimado</div>
+      </div>
+      <div class="match-team right">Raphael Collignon 🇧🇪</div>
+    </div>
+    <div class="card" style="margin-bottom:14px;">
       <div class="card-body">
-        Os dois representantes brasileiros <strong>jogam hoje a decisão!</strong> Ambos perderam a ida por <strong>1 x 0</strong> e precisam vencer por 2+ gols para avançar sem pênaltis. É a vida ou a morte continental. 🇧🇷
+        🇧🇷 <strong>João Fonseca</strong> em quadra no primeiro Masters 1000 da temporada! Transmissão na ESPN e Disney+. Horário pode variar conforme a programação do dia.
       </div>
-    </div>
-    <div class="match-card" style="border: 2px solid #d32f2f;">
-      <div class="match-team"><strong>Bahia 🇧🇦</strong></div>
-      <div style="text-align:center">
-        <div class="match-score" style="font-size:16px;">🕕 19h00</div>
-        <div class="match-info">Fonte Nova · Perdeu a ida 0–1 😬</div>
-      </div>
-      <div class="match-team right">O'Higgins 🇨🇱</div>
-    </div>
-    <div class="match-card" style="border: 2px solid #d32f2f;">
-      <div class="match-team"><strong>Botafogo 🇷🇯</strong></div>
-      <div style="text-align:center">
-        <div class="match-score" style="font-size:16px;">🕙 21h30</div>
-        <div class="match-info">Nilton Santos · Perdeu a ida 0–1 😬</div>
-      </div>
-      <div class="match-team right">Nacional Potosí 🇧🇴</div>
     </div>
 
-    <!-- Champions League ontem -->
-    <div class="sub-label" style="padding-top:14px; padding-bottom:8px;">🏆 Champions League — Playoff Volta · 24/02 (ontem)</div>
-
-    <div class="match-card">
-      <div class="match-team" style="opacity:0.5;">Club Brugge 🇧🇪</div>
-      <div style="text-align:center">
-        <div class="match-score">3 — 3</div>
-        <div class="match-info">✅ Atlético de Madrid avança (agg 7–6) · Sørloth hat-trick 🔥</div>
-      </div>
-      <div class="match-team right"><strong>Atlético Madrid 🇪🇸</strong></div>
+    <!-- MENÇÃO HONROSA -->
+    <div class="sub-wrap">
+      <span class="sub-label">🏓 Menção Honrosa — Tênis de Mesa</span>
     </div>
-
-    <div class="match-card">
-      <div class="match-team" style="opacity:0.5;">Olympiacos 🇬🇷</div>
-      <div style="text-align:center">
-        <div class="match-score">2 — 2</div>
-        <div class="match-info">✅ Leverkusen avança (agg 4–2)</div>
-      </div>
-      <div class="match-team right"><strong>Leverkusen 🇩🇪</strong></div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team right"><strong>Bodø/Glimt 🇳🇴</strong></div>
-      <div style="text-align:center">
-        <div class="match-score">1 — 3</div>
-        <div class="match-info">✅ Bodø elimina Inter! (agg 5–2) 🤯</div>
-      </div>
-      <div class="match-team" style="opacity:0.5;">Inter de Milão 🇮🇹</div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team" style="opacity:0.5;">Qarabağ 🇦🇿</div>
-      <div style="text-align:center">
-        <div class="match-score">1 — 6</div>
-        <div class="match-info">✅ Newcastle avança (agg 9–3)</div>
-      </div>
-      <div class="match-team right"><strong>Newcastle 🏴󠁧󠁢󠁥󠁮󠁧󠁿</strong></div>
-    </div>
-
-    <div class="card">
+    <div class="news-card honor">
+      <div class="card-label">🏆 WTT Smash · Singapura 2026</div>
+      <div class="card-title">🇧🇷 "Calderashi" faz história: primeira dupla mista não asiática a vencer um Smash!</div>
       <div class="card-body">
-        🤯 Surpresa do campeonato! O <strong>Bodø/Glimt</strong> da Noruega eliminou o Inter de Milão, tri-campeão europeu, pelo placar agregado de 5 a 2. Jens Hauge e Kasper Høgh fizeram os gols da virada em San Siro. O time norueguês faz a maior campanha de sua história na Liga dos Campeões.
-      </div>
-    </div>
-
-    <!-- Champions hoje -->
-    <div class="sub-label" style="padding-top:14px; padding-bottom:8px;">⏰ Champions League — Playoff Volta · HOJE (25/02)</div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>Atalanta 🇮🇹</strong></div>
-      <div style="text-align:center">
-        <div class="match-score" style="font-size:16px;">🕔 Em andamento</div>
-        <div class="match-info">Ida: Dortmund 2–0 Atalanta · Missão difícil</div>
-      </div>
-      <div class="match-team right">Dortmund 🇩🇪</div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>Juventus 🇮🇹</strong></div>
-      <div style="text-align:center">
-        <div class="match-score" style="font-size:16px;">🕔 17h00</div>
-        <div class="match-info">Ida: Galatasaray 5–2 Juve · Missão quase impossível</div>
-      </div>
-      <div class="match-team right">Galatasaray 🇹🇷</div>
-    </div>
-
-    <div class="match-card" style="border: 2px solid #f5c400;">
-      <div class="match-team"><strong>PSG 🇫🇷</strong></div>
-      <div style="text-align:center">
-        <div class="match-score" style="font-size:16px;">🕔 17h00</div>
-        <div class="match-info">Ida: Monaco 2–3 PSG · PSG avança com empate</div>
-      </div>
-      <div class="match-team right">Monaco 🇲🇨</div>
-    </div>
-
-    <div class="match-card" style="border: 2px solid #f5c400;">
-      <div class="match-team"><strong>Real Madrid 🇪🇸</strong></div>
-      <div style="text-align:center">
-        <div class="match-score" style="font-size:16px;">🕔 17h00</div>
-        <div class="match-info">Ida: Benfica 0–1 Madrid · Mourinho volta ao Bernabéu! 🎭</div>
-      </div>
-      <div class="match-team right">Benfica 🇵🇹</div>
-    </div>
-
-    <div class="card">
-      <div class="card-body">
-        🎭 O jogo do dia é <strong>Real Madrid x Benfica</strong>! Além da classificação, o duelo marca o retorno de <strong>José Mourinho</strong> ao Santiago Bernabéu quase 13 anos depois de deixar o clube espanhol. O treinador português comanda o Benfica com a vantagem de 1 a 0 da ida. Sorteio das oitavas: <strong>sexta-feira (27/02)</strong>.
-      </div>
-    </div>
-
-    <!-- Tênis de Mesa -->
-    <div class="sub-label" style="padding-top:14px; padding-bottom:8px;">🏓 Tênis de Mesa — WTT Smash de Singapura 2026</div>
-
-    <div class="news-card" style="border-left-color: var(--green);">
-      <div class="card-label">Tênis de Mesa · WTT Singapura</div>
-      <div class="card-title">Calderano avança às oitavas e casal vai à semifinal das duplas mistas! 🇧🇷🏓</div>
-      <div class="card-body">
-        <strong>Hugo Calderano</strong>, vice-líder do ranking mundial, derrotou o honconguês Wong Chun Ting por <strong>3 sets a 1</strong> (14/12, 11/8, 8/11 e 11/9) e avançou às oitavas de final do <strong>WTT Smash de Singapura</strong>. Nas oitavas, enfrenta o chinês Chen Yuanyu na madrugada de sexta (27/02 às 2h10 de Brasília). Nas duplas mistas, o casal <strong>Calderano e Bruna Takahashi</strong> também brilhou: venceram os indianos Manush Shah e Diya Chitale por 3 a 0 e estão nas semifinais — próximo duelo amanhã (26/02 às 9h55). O torneio distribui <strong>2 mil pontos no ranking ITTF</strong> e premiação de US$ 1,55 milhão.
-        <br><a href="https://www.lance.com.br/tenis/hugo-calderano-avanca-para-as-oitavas-do-wtt-smash-de-singapura.html" target="_blank">→ Leia mais no Lance!</a>
+        <strong>Bruna Takahashi e Hugo Calderano</strong> formaram o "Calderashi" e conquistaram o WTT Smash de Singapura nas duplas mistas. A dupla derrubou a <strong>número 1 do ranking mundial</strong> e entrou para a história como a <strong>primeira dupla mista não asiática</strong> a vencer um torneio da categoria. 🏆🇧🇷
+        <br><a href="https://agenciabrasil.ebc.com.br/esportes/noticia/2026-02/calderashi-bate-dupla-numero-1-e-fatura-titulo-no-smash-de-singapura" target="_blank">→ Leia mais na Agência Brasil</a>
       </div>
     </div>
 
@@ -411,84 +387,9 @@
 </section>
 
 
-
-<!-- ══ FINANÇAS ══ -->
-<section>
-  <div class="section-header">
-    <span class="section-emoji">💰</span>
-    <span class="section-title">Finanças</span>
-    <span class="section-sub">Fechamento 24/02</span>
-  </div>
-  <div class="section-body">
-
-    <div class="sub-label" style="padding-bottom:6px;">📊 Índices</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
-
-      <div class="weather-card" style="padding:12px 14px;">
-        <div class="weather-city">IBOVESPA</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">191.490</div>
-        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +1,40%</div>
-        <div class="weather-extra">pts · 13º recorde histórico 🏆</div>
-      </div>
-
-      <div class="weather-card" style="padding:12px 14px;">
-        <div class="weather-city">IFIX · Fund. Imob.</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">3.874</div>
-        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +0,31%</div>
-        <div class="weather-extra">pts · fechamento 24/02</div>
-      </div>
-
-    </div>
-
-    <div class="sub-label" style="padding-bottom:6px;">💱 Câmbio & Cripto</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
-
-      <div class="weather-card" style="padding:12px 14px;">
-        <div class="weather-city">🇺🇸 DÓLAR (USD)</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">R$ 5,1556</div>
-        <div style="font-size:12px; color:#d9534f; font-weight:600;">▼ -0,27%</div>
-        <div class="weather-extra">menor desde mai/2024 💪</div>
-      </div>
-
-      <div class="weather-card" style="padding:12px 14px;">
-        <div class="weather-city">₿ BITCOIN (BTC)</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--black); line-height:1.1;">R$ 336k</div>
-        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +3,30%</div>
-        <div class="weather-extra">≈ US$ 65.400 · 24h</div>
-      </div>
-
-    </div>
-
-    <div class="sub-label" style="padding-bottom:6px;">📈 Ação do Dia</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
-
-      <div class="weather-card" style="padding:12px 14px; border-left: 4px solid #5cb85c;">
-        <div class="weather-city">🏆 Maior Alta</div>
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:700; color:var(--black);">PETR4</div>
-        <div style="font-size:12px; color:#5cb85c; font-weight:600;">▲ +1,83%</div>
-        <div class="weather-extra">Petrobras — alta do petróleo</div>
-      </div>
-
-      <div class="weather-card" style="padding:12px 14px; border-left: 4px solid #d9534f;">
-        <div class="weather-city">📉 Maior Queda</div>
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:700; color:var(--black);">VALE3</div>
-        <div style="font-size:12px; color:#d9534f; font-weight:600;">▼ -2,5%</div>
-        <div class="weather-extra">Vale — prejuízo no 4T25</div>
-      </div>
-
-    </div>
-
-    <div class="sub-label" style="padding-bottom:6px;">🏢 Destaque FII</div>
-    <div class="card">
-      <div class="card-label">XPML11 · Shoppings</div>
-      <div class="card-title">XP Malls paga R$ 0,92/cota — rendimento isento pelo 22º mês</div>
-      <div class="card-body">O XPML11 confirmou dividendo de <strong>R$ 0,92 por cota</strong> referente a janeiro de 2026, com pagamento em 25/02 para quem estava posicionado até 18/02. DY mensal de 0,83%. Rendimentos isentos de IR para pessoa física. Vacância próxima de 4,3%.<br><a href="https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/cotacoes/" target="_blank">→ Dados completos na B3</a></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ BRASIL ══ -->
+<!-- ══════════════════════════════════════════ -->
+<!-- 3. BRASIL                                 -->
+<!-- ══════════════════════════════════════════ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🇧🇷</span>
@@ -497,56 +398,64 @@
   </div>
   <div class="section-body">
 
-    <div class="news-card">
-      <div class="card-label">Economia · Importação</div>
-      <div class="card-title">Governo prevê arrecadar R$ 14 bilhões com alta de tarifas de importação — celulares e eletrônicos na lista</div>
+    <div class="news-card" style="border-left-color: var(--red);">
+      <div class="card-label">Segurança · Operação Compliance Zero · 3ª Fase</div>
+      <div class="card-title">PF prende Vorcaro em casa — 3ª fase da Compliance Zero e bloqueio de R$ 22 bilhões</div>
       <div class="card-body">
-        O Ministério da Fazenda estima arrecadar <strong>R$ 14 bilhões</strong> a mais em 2026 com o aumento do imposto de importação sobre mais de <strong>mil produtos</strong>. As alíquotas sobem até 7,2 pontos percentuais. Na lista estão smartphones, freezers, painéis de LED, robôs industriais, tratores e equipamentos médicos. Parte das novas tarifas já está em vigor desde 6 de fevereiro — o restante entra em março. O governo afirma que o impacto no IPCA será "baixo e defasado". Importadores divergem e alertam para encarecimento de produtos e perda de competitividade.<br><a href="https://g1.globo.com/economia/noticia/2026/02/24/governo-espera-arrecadar-r-14-bilhoes-neste-ano-com-alta-na-tarifa-de-importacao-de-mais-de-mil-produtos-celulares-foram-taxados.ghtml" target="_blank">→ Leia mais na G1</a>
+        Manhã de operação em São Paulo: a <strong>Polícia Federal</strong> prendeu <strong>Daniel Vorcaro</strong>, fundador do Banco Master, em sua residência durante a <strong>3ª fase da Operação Compliance Zero</strong>. A ordem foi dada pelo ministro do STF <strong>André Mendonça</strong> — que assumiu o caso após Dias Toffoli ser afastado da relatoria. A investigação apura um suposto esquema de <strong>ameaça, corrupção, lavagem de dinheiro e invasão de dispositivos informáticos</strong> por organização criminosa. Também foram presos o cunhado <strong>Fabiano Zettel</strong> e outros investigados. No total: 4 mandados de prisão preventiva e 15 de busca e apreensão em SP e MG, além de bloqueio de até <strong>R$ 22 bilhões</strong> em bens. Esta é a 3ª vez que Vorcaro se torna alvo — ele havia sido preso em novembro/2025 e solto 10 dias depois pelo TRF-1.
+        <br><a href="https://revistaoeste.com/politica/policia-federal-prende-vorcaro-na-3a-fase-da-compliance-zero/" target="_blank">→ Leia mais na Revista Oeste</a>
       </div>
     </div>
 
-    <div class="news-card">
-      <div class="card-label">Economia · Caso Master</div>
-      <div class="card-title">Vorcaro confirma depoimento presencial no Senado para terça-feira (3/03)</div>
+    <div class="news-card warn">
+      <div class="card-label">Desastre · Minas Gerais · Porteirinha</div>
+      <div class="card-title">🚨 Governo decreta emergência por risco de ruptura de barragem no norte de MG</div>
       <div class="card-body">
-        Após faltar à oitiva na CAE na terça (24), o banqueiro <strong>Daniel Vorcaro</strong>, dono do Banco Master, confirmou presença presencial no Senado para o dia 3 de março. Ele virá em voo comercial de São Paulo escoltado — STF proibiu o uso de jato particular. Senadores cobram ainda respostas da CVM, que negou omissão e apontou "indícios de ativos inflados". O caso Master pode gerar um rombo de <strong>R$ 40 bilhões</strong> no FGC.
+        O Ministério da Integração reconheceu <strong>situação de emergência</strong> em <strong>Porteirinha (MG)</strong> após a <strong>Barragem das Lajes</strong> apresentar risco iminente de colapso. Na madrugada de sábado (28/02), choveu mais de <strong>120mm em apenas 4 horas</strong> — a maior enchente em mais de <strong>40 anos</strong> na região. O vertedouro (sangrador) da barragem teve mais de 90% da estrutura comprometida e houve rompimento parcial. Caso a barragem rompa totalmente, até <strong>800 pessoas</strong> podem ser desalojadas, afetando cerca de 85 hectares. Até segunda-feira, 114 moradores já foram evacuados. O município está autorizado a solicitar recursos federais para ações humanitárias imediatas.
+        <br><a href="https://revistaoeste.com/brasil/governo-federal-decreta-emergencia-por-risco-de-ruptura-de-barragem-em-minas-gerais/" target="_blank">→ Leia mais na Revista Oeste</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══ MUNDO ══ -->
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 4. MUNDO                                  -->
+<!-- ══════════════════════════════════════════ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🌎</span>
     <span class="section-title">Mundo</span>
-    <span class="section-sub">2 destaques</span>
+    <span class="section-sub">Guerra no Oriente Médio</span>
   </div>
   <div class="section-body">
 
     <div class="news-card world">
-      <div class="card-label">EUA · México</div>
-      <div class="card-title">EUA ameaçam cartéis com "graves consequências" após morte de El Mencho desencadear onda de violência</div>
+      <div class="card-label">EUA · Israel · Irã · Guerra no Oriente Médio</div>
+      <div class="card-title">Trump: "Praticamente tudo foi destruído" — EUA e Israel devastam o Irã</div>
       <div class="card-body">
-        A porta-voz da Casa Branca, Karoline Leavitt, avisou que os cartéis mexicanos "sabem que não podem tocar em nenhum americano". A declaração veio após a morte de <strong>El Mencho</strong>, líder do CJNG, abatido por operação conjunta México-EUA, desencadear uma onda de violência no oeste do México que deixou centenas de turistas americanos retidos. Trump atribuiu o sucesso da operação à sua própria liderança.
-        <br><a href="https://www.gazetadopovo.com.br/mundo/eua-ameacam-carteis-mexicanos-graves-consequencias-onda-de-violencia/" target="_blank">→ Leia mais na Gazeta do Povo</a>
+        Em coletiva com o chanceler alemão <strong>Friedrich Merz</strong> na Casa Branca, <strong>Donald Trump</strong> fez um balanço da ofensiva iniciada no sábado (28/02): "Eles não têm Marinha — ela foi destruída. Não têm Força Aérea — destruída. Sem sistemas de detecção aérea, sem radar. Praticamente tudo foi destruído." Entre as baixas confirmadas está o <strong>aiatolá Ali Khamenei</strong>, líder supremo do Irã desde 1989, morto durante os ataques. O Crescente Vermelho iraniano contabiliza mais de <strong>787 mortos</strong> no Irã. Em resposta, o regime lançou drones e mísseis contra bases americanas no Golfo Pérsico e fechou o <strong>Estreito de Ormuz</strong>, impactando o transporte global de petróleo.
+        <br><a href="https://www.cnnbrasil.com.br/internacional/trump-sobre-instalacoes-militares-do-ira-praticamente-tudo-foi-destruido/" target="_blank">→ Leia mais na CNN Brasil</a>
       </div>
     </div>
 
     <div class="news-card world">
-      <div class="card-label">EUA · Venezuela</div>
-      <div class="card-title">EUA interceptam petroleiro Bertha no Oceano Índico após perseguição desde o Caribe</div>
+      <div class="card-label">Oriente Médio · Sri Lanka · Conflito Naval</div>
+      <div class="card-title">🚢 Submarino afunda fragata iraniana IRIS Dena perto do Sri Lanka — 101 desaparecidos</div>
       <div class="card-body">
-        Forças americanas abordaram o petroleiro <strong>Bertha</strong> no Oceano Índico, rastreado desde o Caribe. A embarcação transportava <strong>1,9 milhão de barris</strong> de petróleo venezuelano com destino à China e tentou fugir do bloqueio imposto por Trump. É a 10ª interdição desde dezembro e a 3ª no Índico. O Pentágono afirmou: "Do Caribe ao Oceano Índico, nós a rastreamos e detivemos."
-        <br><a href="https://revistaoeste.com/mundo/eua-apreendem-petroleiro-venezuelano-bertha-no-oceano-indico/" target="_blank">→ Leia mais na Revista Oeste</a>
+        A guerra chegou ao Oceano Índico: a fragata iraniana <strong>IRIS Dena</strong>, com 180 tripulantes, afundou ao largo da costa do Sri Lanka após ser atingida por um <strong>submarino de autoria não confirmada</strong>. Fontes da Marinha e do Ministério da Defesa do Sri Lanka relataram <strong>101 desaparecidos, 1 morto e 78 feridos</strong>. A Marinha local respondeu ao pedido de socorro às 6h da manhã, resgatando cerca de 30 sobreviventes levados ao hospital em Galle. O incidente ocorre no contexto do conflito EUA-Israel x Irã — e simultaneamente a IRGC iraniana alegou ter atacado um destróier americano nas proximidades. As operações de busca continuam.
+        <br><a href="https://www.infomoney.com.br/mundo/ataque-submarino-a-navio-iraniano-deixa-ao-menos-101-desaparecidos/" target="_blank">→ Leia mais na InfoMoney</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══ FOFOCA DO FISCAL ══ -->
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 5. FOFOCA DO FISCAL                       -->
+<!-- ══════════════════════════════════════════ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🗣️</span>
@@ -556,17 +465,30 @@
   <div class="section-body">
 
     <div class="news-card fofoca">
-      <div class="card-label">Entretenimento · BBB 26</div>
-      <div class="card-title">Carnaval agita os famosos — e o BBB continua fervilhando</div>
+      <div class="card-label">Entretenimento · SBT · Programa do Ratinho</div>
+      <div class="card-title">😔 Marquito segue na UTI — estado grave, mas evoluindo</div>
       <div class="card-body">
-        O Carnaval de Salvador e Rio agitou as redes sociais com aparições de famosos nos trios e camarotes. O BBB26 segue no ar com a casa virada após o recesso do Carnaval — novas formações de paredão e alianças estão sendo reconfiguradas.
+        O humorista <strong>Marquito</strong> (Marco Antonio Ricciardelli), 65 anos, do Programa do Ratinho, continua internado na UTI do Hospital Nipo-Brasileiro em São Paulo. O hospital confirma quadro <strong>grave</strong>, porém com <strong>evolução clínica estável</strong>. Após uma cirurgia de coluna de 4 horas no dia 27/02, ele foi extubado no domingo (1º/03) e já respira sem aparelhos — um sinal positivo. Tudo começou no dia 25/02 quando Marquito sofreu um <strong>mal súbito pilotando sua moto</strong> na Vila Gustavo, Zona Norte de SP, colidindo com outro veículo e fraturando uma costela. Não há previsão de alta.
+        <br><a href="https://ofuxico.com.br/hospital/marquito-mantem-evolucao-sem-mudancas-relevantes-na-uti/" target="_blank">→ Acompanhe no Fuxico</a>
+      </div>
+    </div>
+
+    <div class="news-card fofoca">
+      <div class="card-label">Celebridades · Família · A guerra chega até as férias</div>
+      <div class="card-title">🎢 Zé Felipe cancela Disney com os filhos por causa da guerra EUA x Irã</div>
+      <div class="card-body">
+        A geopolítica bateu na porta do sertanejo. <strong>Zé Felipe</strong>, 27, cancelou a viagem marcada para o domingo (08/03) com os filhos para a Disney em Orlando. Nos stories do Instagram, foi direto: "Eu ia com as crianças pra Orlando, pra Disney, mas não é o melhor momento, né? Por tudo isso que tá passando, guerra." Os três herdeiros — <strong>Maria Alice (4), Maria Flor (3) e José Leonardo (1)</strong>, frutos do casamento com Virginia Fonseca — vão trocar os parques temáticos por uma praia brasileira. Virginia está em Madri com o namorado Vini Jr., que joga no Real Madrid.
+        <br><a href="https://portalleodias.com/famosos/ze-felipe-cancela-viagem-a-disney-com-os-filhos-por-conta-de-conflitos-envolvendo-os-eua" target="_blank">→ Leia mais no Portal Leo Dias</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══ FISCAL DA PROMO ══ -->
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 6. FISCAL DA PROMO                        -->
+<!-- ══════════════════════════════════════════ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🛍️</span>
@@ -576,88 +498,33 @@
   <div class="section-body">
 
     <div class="promo-card">
-      <div class="promo-emoji">🧦</div>
+      <div class="promo-emoji">🪫</div>
       <div class="promo-content">
-        <div class="promo-store">Puma · Kit 9 Pares · Mercado Livre</div>
-        <div class="promo-title">Kit 9 Pares Meias Puma Sapatilha Soquete Invisível Original</div>
-        <div class="card-body" style="margin-top:4px;">Tipo a meia perfeita pra usar com a calça curta sem o visual de avô. Soquete invisível, sem vergonha! 🦵✂️</div>
-        <a href="https://meli.la/2ke6TdB" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
+        <div class="promo-store">Power Bank · Mercado Livre</div>
+        <div class="promo-title">Carregador Portátil Power Bank Turbo 20000mAh</div>
+        <div class="card-body" style="margin-top:4px;">Para o seu iPhone que suga bateria mais rápido do que a sua paciência. Turbo, 20000mAh — de 0 a 100 antes que você perceba. 🔋⚡</div>
+        <a href="https://meli.la/2HT8thh" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
       </div>
     </div>
 
     <div class="promo-card">
-      <div class="promo-emoji">🩲</div>
+      <div class="promo-emoji">🎧</div>
       <div class="promo-content">
-        <div class="promo-store">Zorba · Kit 10 Cuecas · Mercado Livre</div>
-        <div class="promo-title">Kit 10 Cueca Boxer Zorba 781 Original Em Algodão Sem Costura</div>
-        <div class="card-body" style="margin-top:4px;">Joga as furadas fora e dê uma nova casinha pro 🐥. Algodão sem costura — o fim dos perrengues invisíveis.</div>
-        <a href="https://meli.la/2ediAFQ" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
+        <div class="promo-store">Samsung · Galaxy Buds Core · Mercado Livre</div>
+        <div class="promo-title">Galaxy Buds Core Preto</div>
+        <div class="card-body" style="margin-top:4px;">Para escutar o tema das branquelas na academia sem ninguém saber. Qualidade Samsung, som na veia, visual discreto. 🏋️‍♂️🎵</div>
+        <a href="https://meli.la/1CH2Pf1" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══ CLIMA ══ -->
-<section>
-  <div class="section-header">
-    <span class="section-emoji">🌤️</span>
-    <span class="section-title">Previsão do Tempo</span>
-    <span class="section-sub">Hoje — 25/02</span>
-  </div>
-  <div class="section-body">
-    <div class="weather-grid">
-
-      <div class="weather-card">
-        <div class="weather-city">📍 Maringá — PR</div>
-        <div class="weather-desc">🌦️ Chuvas esparsas</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">19° – 31°</div>
-        <div class="weather-extra">Chuva: 48% 🌤️</div>
-      </div>
-
-      <div class="weather-card">
-        <div class="weather-city">📍 São Paulo — SP</div>
-        <div class="weather-desc">🌧️ Pancadas fortes à tarde</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">21° – 27°</div>
-        <div class="weather-extra">Chuva: 90% ☔</div>
-      </div>
-
-      <div class="weather-card">
-        <div class="weather-city">📍 Itu — SP</div>
-        <div class="weather-desc">🌦️ Chuvas esparsas</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">20° – 29°</div>
-        <div class="weather-extra">Chuva: 85% ☔</div>
-      </div>
-
-      <div class="weather-card">
-        <div class="weather-city">📍 Indaiatuba — SP</div>
-        <div class="weather-desc">🌦️ Chuva à tarde</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">20° – 28°</div>
-        <div class="weather-extra">Chuva: 80% ☔</div>
-      </div>
-
-      <div class="weather-card">
-        <div class="weather-city">📍 Pato Branco — PR</div>
-        <div class="weather-desc">⛅ Sol com nuvens</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">19° – 27°</div>
-        <div class="weather-extra">Chuva: 35% 🌤️</div>
-      </div>
-
-      <div class="weather-card">
-        <div class="weather-city">📍 Campinas — SP</div>
-        <div class="weather-desc">☁️ Nublado</div>
-        <div class="weather-extra" style="font-size:18px; font-weight:700; color:#222; margin-top:6px;">27°C</div>
-        <div class="weather-extra">Chuva: 25% 🌤️</div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-grito">VAIII FISCALLLLL! 🔍🔥</div>
-  <div class="footer-sub">Edição 003 · 25 de fevereiro de 2026 · fiscaldeminuto.github.io</div>
+  <div class="footer-sub">Edição 004 · 04 de Março de 2026 · fiscaldeminuto.github.io</div>
 </footer>
 
 </body>
