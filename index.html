@@ -3,486 +3,324 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🔍 Fiscal de Minuto — 10/03/2026</title>
+  <title>🔍 Fiscal de Minuto — 20/03/2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --black:   #0d0d0d;
-      --offwhite:#f4f0e8;
-      --yellow:  #f5c400;
-      --red:     #e03030;
-      --green:   #1db954;
-      --blue:    #3a86ff;
-      --purple:  #a855f7;
-      --gray:    #2a2a2a;
-      --orange:  #ff6b00;
+      --black:#0d0d0d; --offwhite:#f4f0e8; --yellow:#f5c400;
+      --red:#e03030; --green:#1db954; --blue:#3a86ff;
+      --purple:#a855f7; --gray:#2a2a2a; --orange:#ff6b00;
     }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:#e8e4dc; color:var(--black); font-family:'IBM Plex Sans',sans-serif; font-size:15px; line-height:1.6; max-width:780px; margin:0 auto; padding:0 0 60px; }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    header { background:var(--yellow); padding:28px 24px 20px; position:relative; overflow:hidden; }
+    header::before { content:'🔍'; font-size:120px; position:absolute; right:-20px; top:-10px; opacity:.12; line-height:1; }
+    .header-label { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--black); opacity:.6; margin-bottom:4px; }
+    .header-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(42px,10vw,72px); letter-spacing:2px; color:var(--black); line-height:.95; }
+    .header-date { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--black); opacity:.55; margin-top:8px; }
 
-    body {
-      background: #e8e4dc;
-      color: var(--black);
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 0 60px;
-    }
+    section { margin:0; background:var(--offwhite); border-bottom:1px solid #d8d4cc; }
+    .section-header { display:flex; align-items:center; gap:10px; padding:18px 24px 12px; background:var(--black); }
+    .section-emoji { font-size:20px; }
+    .section-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:1.5px; color:var(--yellow); }
+    .section-sub { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px; color:#666; margin-left:auto; text-transform:uppercase; }
+    .section-body { padding:16px 24px 20px; }
 
-    /* ── HEADER ── */
-    header {
-      background: var(--yellow);
-      padding: 28px 24px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '🔍';
-      font-size: 120px;
-      position: absolute;
-      right: -20px; top: -10px;
-      opacity: .12; line-height: 1;
-    }
-    .header-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px; letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--black); opacity: .6;
-      margin-bottom: 4px;
-    }
-    .header-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(42px, 10vw, 72px);
-      letter-spacing: 2px; color: var(--black); line-height: .95;
-    }
-    .header-date {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px; color: var(--black);
-      opacity: .55; margin-top: 8px;
-    }
+    .sub-wrap { margin-top:20px; margin-bottom:10px; }
+    .sub-wrap:first-child { margin-top:0; }
+    .sub-label { font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:2.5px; text-transform:uppercase; color:#fff; background:var(--gray); padding:5px 12px; border-radius:4px; display:inline-block; }
+    .sub-label.hot { background:var(--red); }
 
-    /* ── SECTIONS ── */
-    section { margin: 0; background: var(--offwhite); border-bottom: 1px solid #d8d4cc; }
+    .card { background:#fff; border:1px solid #ddd; border-radius:6px; padding:14px 16px; margin-bottom:12px; }
+    .card:last-child { margin-bottom:0; }
+    .card-label { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888; margin-bottom:4px; }
+    .card-title { font-size:15px; font-weight:600; color:var(--black); margin-bottom:6px; }
+    .card-body { font-size:13px; color:#444; line-height:1.5; }
+    .card-body a { color:#b89200; text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.5px; display:inline-block; margin-top:6px; border-bottom:1px solid transparent; transition:border-color .2s; }
+    .card-body a:hover { border-color:#b89200; }
 
-    .section-header {
-      display: flex; align-items: center; gap: 10px;
-      padding: 18px 24px 12px;
-      background: var(--black);
-    }
-    .section-emoji { font-size: 20px; }
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px; letter-spacing: 1.5px; color: var(--yellow);
-    }
-    .section-sub {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px; letter-spacing: 2px;
-      color: #666; margin-left: auto; text-transform: uppercase;
-    }
-    .section-body { padding: 16px 24px 20px; }
+    .match-card { display:flex; align-items:center; justify-content:space-between; background:#fff; border:1px solid #ddd; border-radius:6px; padding:12px 16px; margin-bottom:10px; }
+    .match-card:last-child { margin-bottom:0; }
+    .match-team { font-weight:600; font-size:14px; flex:1; color:var(--black); }
+    .match-team.right { text-align:right; }
+    .match-score { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:var(--black); padding:0 16px; min-width:80px; text-align:center; }
+    .match-score.pending { color:#999; font-size:15px; padding-top:4px; }
+    .match-info { font-family:'IBM Plex Mono',monospace; font-size:10px; color:#888; text-align:center; margin-top:2px; }
 
-    /* ── SUB-LABEL ── */
-    .sub-wrap { margin-top: 20px; margin-bottom: 10px; }
-    .sub-wrap:first-child { margin-top: 0; }
-    .sub-label {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 13px; letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #fff;
-      background: var(--gray);
-      padding: 5px 12px;
-      border-radius: 4px;
-      display: inline-block;
-    }
-    .sub-label.hot { background: var(--red); }
+    .news-card { background:#fff; border:1px solid #ddd; border-left:4px solid var(--red); border-radius:0 6px 6px 0; padding:12px 16px; margin-bottom:10px; }
+    .news-card.world { border-left-color:var(--blue); }
+    .news-card.esports { border-left-color:var(--blue); }
+    .news-card.warn { border-left-color:var(--orange); }
+    .news-card:last-child { margin-bottom:0; }
+    .news-card .card-title { color:var(--black); }
+    .news-card .card-body { color:#444; }
+    .news-card .card-label { color:#888; }
 
-    /* ── CARDS ── */
-    .card {
-      background: #fff; border: 1px solid #ddd;
-      border-radius: 6px; padding: 14px 16px;
-      margin-bottom: 12px; position: relative;
-    }
-    .card:last-child { margin-bottom: 0; }
-    .card-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px; letter-spacing: 2px;
-      text-transform: uppercase; color: #888; margin-bottom: 4px;
-    }
-    .card-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-    .card-body  { font-size: 13.5px; color: #444; line-height: 1.55; }
-    .card-body a {
-      color: #b89200; text-decoration: none;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px; letter-spacing: .5px;
-      display: inline-block; margin-top: 6px;
-      border-bottom: 1px solid transparent; transition: border-color .2s;
-    }
-    .card-body a:hover { border-color: #b89200; }
+    /* GRUPOS GRID — 4 por linha */
+    .grupo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:4px; }
+    .grupo-card { background:#fff; border:1px solid #ddd; border-radius:6px; padding:8px 10px; }
+    .grupo-header { font-family:'Bebas Neue',sans-serif; font-size:12px; letter-spacing:2px; color:#fff; padding:2px 6px; border-radius:3px; display:inline-block; margin-bottom:5px; }
+    .grupo-header.lib { background:#003082; }
+    .grupo-header.sul { background:#8b0000; }
+    .grupo-time { font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#333; line-height:1.65; }
+    .grupo-time strong { color:var(--black); }
 
-    /* ── MATCH CARD ── */
-    .match-card {
-      display: flex; align-items: center; justify-content: space-between;
-      background: #fff; border: 1px solid #ddd;
-      border-radius: 6px; padding: 12px 16px;
-      margin-bottom: 10px; position: relative;
-    }
-    .match-card:last-child { margin-bottom: 0; }
-    .match-team  { font-weight: 600; font-size: 14px; flex: 1; color: var(--black); }
-    .match-team.right { text-align: right; }
-    .match-score {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 26px; letter-spacing: 2px; color: var(--black);
-      padding: 0 16px; min-width: 80px; text-align: center;
-    }
-    .match-score.pending { color: #999; font-size: 16px; padding-top: 4px; }
-    .match-info { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888; text-align: center; margin-top: 2px; }
+    .rodada-day { font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:2px; color:#fff; background:var(--gray); padding:4px 10px; border-radius:4px; display:inline-block; margin:12px 0 8px; }
+    .rodada-day:first-child { margin-top:0; }
 
-    /* ── NEWS CARDS ── */
-    .news-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-left: 4px solid var(--red);
-      border-radius: 0 6px 6px 0;
-      padding: 12px 16px; margin-bottom: 10px;
-    }
-    .news-card.world  { border-left-color: var(--blue); }
-    .news-card.fofoca { border-left-color: var(--purple); }
-    .news-card.honor  { border-left-color: var(--purple); }
-    .news-card.esports{ border-left-color: var(--blue); }
-    .news-card.green  { border-left-color: var(--green); }
-    .news-card.warn   { border-left-color: var(--orange); }
-    .news-card:last-child { margin-bottom: 0; }
-    .news-card .card-title { color: var(--black); }
-    .news-card .card-body  { color: #444; }
-    .news-card .card-label { color: #888; }
+    .eco-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:4px; }
+    .eco-card { background:#fff; border:1px solid #ddd; border-radius:6px; padding:12px 14px; }
+    .eco-city { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888; }
+    .eco-val { font-family:'Bebas Neue',sans-serif; font-size:26px; color:var(--black); line-height:1.1; }
+    .eco-up { font-size:12px; color:#5cb85c; font-weight:600; }
+    .eco-down { font-size:12px; color:#d9534f; font-weight:600; }
+    .eco-sub { font-size:11px; color:#888; margin-top:2px; }
 
-    /* ── PROMO CARD ── */
-    .promo-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 14px 16px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .promo-card:last-child { margin-bottom: 0; }
-    .promo-emoji { font-size: 32px; flex-shrink: 0; }
-    .promo-content { flex: 1; }
-    .promo-store { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 2px; }
-    .promo-title { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-    .promo-link {
-      display: inline-block;
-      background: var(--green);
-      color: #fff;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px; font-weight: 600;
-      padding: 5px 12px; border-radius: 4px;
-      text-decoration: none; letter-spacing: 1px;
-      margin-top: 6px;
-    }
+    .promo-card { background:#fff; border:1px solid #ddd; border-radius:6px; padding:14px 16px; margin-bottom:12px; display:flex; align-items:center; gap:14px; }
+    .promo-card:last-child { margin-bottom:0; }
+    .promo-emoji { font-size:32px; flex-shrink:0; }
+    .promo-content { flex:1; }
+    .promo-store { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888; margin-bottom:2px; }
+    .promo-title { font-size:14px; font-weight:600; color:var(--black); margin-bottom:4px; }
+    .promo-link { display:inline-block; background:var(--green); color:#fff; font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; padding:5px 12px; border-radius:4px; text-decoration:none; letter-spacing:1px; margin-top:6px; }
 
-    /* ── ECONOMIA TABLE ── */
-    .eco-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
-    .eco-table th {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      color: #888; padding: 6px 10px; text-align: left;
-      border-bottom: 2px solid #eee;
-    }
-    .eco-table td {
-      font-size: 13.5px; padding: 8px 10px;
-      border-bottom: 1px solid #f0f0f0;
-      color: var(--black);
-    }
-    .eco-table tr:last-child td { border-bottom: none; }
-    .eco-table .asset { font-weight: 600; }
-    .eco-table .up   { color: var(--green); font-weight: 600; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
-    .eco-table .down { color: var(--red);   font-weight: 600; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
-    .eco-table .val  { font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
+    .final-banner { background:var(--black); color:var(--yellow); text-align:center; padding:11px 20px; border-radius:6px; font-family:'Bebas Neue',sans-serif; font-size:clamp(13px,3vw,19px); letter-spacing:3px; margin-bottom:10px; }
 
-    /* ── FINAL BANNER ── */
-    .final-banner {
-      background: var(--black);
-      color: var(--yellow);
-      text-align: center;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(15px, 3.5vw, 22px);
-      letter-spacing: 3px;
-      margin-bottom: 10px;
-    }
+    footer { background:var(--yellow); padding:24px; text-align:center; }
+    .footer-grito { font-family:'Bebas Neue',sans-serif; font-size:clamp(20px,5vw,32px); color:var(--black); letter-spacing:3px; line-height:1.1; }
+    .footer-sub { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--black); opacity:.5; margin-top:8px; letter-spacing:2px; }
 
-    /* ── FOOTER ── */
-    footer { background: var(--yellow); padding: 24px; text-align: center; }
-    .footer-grito { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px, 5vw, 32px); color: var(--black); letter-spacing: 3px; line-height: 1.1; }
-    .footer-sub   { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--black); opacity: .5; margin-top: 8px; letter-spacing: 2px; }
-
-    @media (max-width: 480px) {
-      .match-score  { font-size: 20px; padding: 0 10px; }
-      .promo-card   { flex-direction: column; align-items: flex-start; }
+    @media (max-width:600px) {
+      .grupo-grid { grid-template-columns:repeat(2,1fr); }
+      .match-score { font-size:20px; padding:0 8px; }
+      .promo-card { flex-direction:column; align-items:flex-start; }
+      .eco-grid { grid-template-columns:1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ HEADER ══ -->
 <header>
-  <div class="header-label">Edição Nº 005 — Terça-feira</div>
+  <div class="header-label">Edição Nº 005 — Sexta-feira</div>
   <div class="header-title">🔍 FISCAL<br>DE MINUTO</div>
-  <div class="header-date">10 de Março de 2026 &nbsp;·&nbsp; O resumo do dia em tempo recorde</div>
+  <div class="header-date">20 de Março de 2026 &nbsp;·&nbsp; O resumo do dia em tempo recorde</div>
 </header>
 
 
-<!-- ══════════════════════════════════════════ -->
-<!-- 1. E-SPORTS                               -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ══ E-SPORTS ══ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🎮</span>
     <span class="section-title">E-sports</span>
-    <span class="section-sub">CS2 · ESL Pro League S23</span>
+    <span class="section-sub">CS2 · BLAST Open Rotterdam</span>
   </div>
   <div class="section-body">
 
     <div class="sub-wrap" style="margin-top:0;">
-      <span class="sub-label">📋 Resultados de Ontem</span>
+      <span class="sub-label">🏆 BLAST Open Rotterdam 2026 — Upper Bracket · Grupo A</span>
     </div>
 
-    <div class="news-card esports">
-      <div class="card-label">CS2 · FÚRIA · ESL Pro League S23</div>
-      <div class="card-title">🇧🇷 FÚRIA elimina a Pain por 2–0 e avança!</div>
-      <div class="card-body">
-        A <strong>FÚRIA</strong> atropelou a <strong>paiN Gaming</strong> por 2–0 em mapas e avançou na competição. Brasil contra Brasil resolvido — uma equipe fica, a outra vai pra casa. 💪🔥
-      </div>
-    </div>
+    <div class="final-banner">🔥 FÚRIA NA DISPUTA DO UPPER — HOJE!</div>
 
-    <div class="news-card esports">
-      <div class="card-label">CS2 · Legacy · ESL Pro League S23</div>
-      <div class="card-title">🇧🇷 Legacy derrota a NaVi e se classifica — 2–1 épico!</div>
-      <div class="card-body">
-        A <strong>Legacy</strong> eliminou a lendária <strong>NaVi</strong> num jogo de 2–1: <strong>13–4 na Dust2</strong> e <strong>13–10 na Mirage</strong>. Classificação confirmada com estilo. 🏆
-      </div>
-    </div>
-
-    <div class="sub-wrap">
-      <span class="sub-label hot">⚔️ Hoje — 14h30</span>
-    </div>
-
-    <div class="match-card" style="border: 2px solid var(--red);">
+    <div class="match-card" style="border:2px solid #009c3b;">
       <div class="match-team"><strong>FÚRIA 🇧🇷</strong></div>
       <div style="text-align:center">
-        <div class="match-score pending">🕑 14h30</div>
-        <div class="match-info">ESL Pro League S23</div>
+        <div class="match-score pending">🕓 ~15h30</div>
+        <div class="match-info">Upper Bracket · Grupo A</div>
       </div>
-      <div class="match-team right"><strong>Astralis 🇩🇰</strong></div>
+      <div class="match-team right"><strong>Aurora 🇪🇺</strong></div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        ✅ <strong>Vencedor</strong> → Final Upper vs Navi ou Falcons<br>
+        ❌ <strong>Perdedor</strong> → Lower vs NRG — valendo a vida
+      </div>
     </div>
 
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════ -->
-<!-- 2. ESPORTES                               -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ══ ESPORTES ══ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">⚽</span>
     <span class="section-title">Esportes</span>
-    <span class="section-sub">Champions + Brasileirão</span>
+    <span class="section-sub">Tênis · Brasileirão · Conmebol</span>
   </div>
   <div class="section-body">
 
-    <!-- CHAMPIONS HOJE -->
     <div class="sub-wrap" style="margin-top:0;">
-      <span class="sub-label hot">🏆 Champions League — Oitavas de Final · Ida · Hoje</span>
+      <span class="sub-label hot">🎾 Miami Open — 2ª Rodada · Hoje</span>
     </div>
-    <div class="final-banner">⚽ CHAMPIONS LEAGUE — É HOJE!</div>
 
-    <div class="match-card" style="border: 2px solid var(--red);">
-      <div class="match-team"><strong>Liverpool 🔴</strong></div>
+    <div class="final-banner">🎾 FONSECA x ALCARAZ Nº 1 DO MUNDO!</div>
+
+    <div class="match-card" style="border:2px solid #009c3b;">
+      <div class="match-team"><strong>João Fonseca 🇧🇷</strong></div>
       <div style="text-align:center">
-        <div class="match-score pending">🕑 14h45</div>
-        <div class="match-info">Ida · Oitavas</div>
+        <div class="match-score pending">🕗 ~20h00</div>
+        <div class="match-info">ESPN · Disney+ Premium</div>
       </div>
-      <div class="match-team right"><strong>Galatasaray 🔴🟡</strong></div>
+      <div class="match-team right"><strong>Alcaraz 🇪🇸 #1</strong></div>
     </div>
 
-    <div class="match-card">
-      <div class="match-team"><strong>Bayern de Munique 🔴</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕔 17h00</div>
-        <div class="match-info">Ida · Oitavas</div>
-      </div>
-      <div class="match-team right"><strong>Atalanta 🖤💙</strong></div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>Tottenham ⚪</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕔 17h00</div>
-        <div class="match-info">Ida · Oitavas</div>
-      </div>
-      <div class="match-team right"><strong>Atlético de Madrid 🔴⚪</strong></div>
-    </div>
-
-    <div class="match-card" style="margin-bottom:16px;">
-      <div class="match-team"><strong>Barcelona 🔵🔴</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕔 17h00</div>
-        <div class="match-info">Ida · Oitavas</div>
-      </div>
-      <div class="match-team right"><strong>Newcastle ⚫⚪</strong></div>
-    </div>
-
-    <!-- CHAMPIONS AMANHÃ -->
+    <!-- BRASILEIRÃO -->
     <div class="sub-wrap">
-      <span class="sub-label">📅 Champions — Amanhã (11/03)</span>
+      <span class="sub-label">🏆 Brasileirão — Rodada do Fim de Semana</span>
     </div>
 
+    <div class="rodada-day">📅 Sábado · 21/03</div>
     <div class="match-card">
-      <div class="match-team"><strong>Chelsea 💙</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕔 17h00</div>
-        <div class="match-info">Ida · Oitavas</div>
-      </div>
-      <div class="match-team right"><strong>PSG 🔵🔴</strong></div>
+      <div class="match-team">Bragantino</div>
+      <div style="text-align:center"><div class="match-score pending">🕔 16h00</div></div>
+      <div class="match-team right">Botafogo</div>
     </div>
-
     <div class="match-card">
-      <div class="match-team"><strong>Man. City 💙</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕔 17h00</div>
-        <div class="match-info">Ida · Oitavas</div>
-      </div>
-      <div class="match-team right"><strong>Real Madrid ⚪</strong></div>
+      <div class="match-team">Fluminense</div>
+      <div style="text-align:center"><div class="match-score pending">🕕 18h30</div></div>
+      <div class="match-team right">Atlético-MG</div>
+    </div>
+    <div class="match-card" style="border:2px solid var(--yellow);">
+      <div class="match-team"><strong>São Paulo</strong></div>
+      <div style="text-align:center"><div class="match-score pending">🕘 21h00</div><div class="match-info">🔥 Clássico!</div></div>
+      <div class="match-team right"><strong>Palmeiras</strong></div>
     </div>
 
+    <div class="rodada-day">📅 Domingo · 22/03</div>
     <div class="match-card">
-      <div class="match-team"><strong>Arsenal 🔴</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕑 14h45</div>
-        <div class="match-info">Ida · Oitavas</div>
-      </div>
-      <div class="match-team right"><strong>Bayer Leverkusen ⬛🔴</strong></div>
+      <div class="match-team">Vasco</div>
+      <div style="text-align:center"><div class="match-score pending">🕔 16h00</div></div>
+      <div class="match-team right">Grêmio</div>
+    </div>
+    <div class="match-card">
+      <div class="match-team">Cruzeiro</div>
+      <div style="text-align:center"><div class="match-score pending">🕔 16h00</div></div>
+      <div class="match-team right">Santos</div>
+    </div>
+    <div class="match-card">
+      <div class="match-team">Athletico-PR</div>
+      <div style="text-align:center"><div class="match-score pending">🕔 16h00</div></div>
+      <div class="match-team right">Coritiba</div>
+    </div>
+    <div class="match-card">
+      <div class="match-team">Remo</div>
+      <div style="text-align:center"><div class="match-score pending">🕔 16h00</div></div>
+      <div class="match-team right">Bahia</div>
+    </div>
+    <div class="match-card">
+      <div class="match-team">Internacional</div>
+      <div style="text-align:center"><div class="match-score pending">🕕 18h30</div></div>
+      <div class="match-team right">Chapecoense</div>
+    </div>
+    <div class="match-card">
+      <div class="match-team">Vitória</div>
+      <div style="text-align:center"><div class="match-score pending">🕕 18h30</div></div>
+      <div class="match-team right">Mirassol</div>
+    </div>
+    <div class="match-card" style="border:2px solid var(--red);">
+      <div class="match-team"><strong>Corinthians</strong></div>
+      <div style="text-align:center"><div class="match-score pending">🕟 20h30</div><div class="match-info">🔥 Clássico!</div></div>
+      <div class="match-team right"><strong>Flamengo</strong></div>
     </div>
 
-    <div class="match-card" style="margin-bottom:16px;">
-      <div class="match-team"><strong>Sporting 🟢</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕔 17h00</div>
-        <div class="match-info">Ida · Oitavas</div>
-      </div>
-      <div class="match-team right"><strong>Bodø/Glimt 🟡⚫</strong></div>
-    </div>
-
-    <!-- BRASILEIRÃO HOJE -->
+    <!-- LIBERTADORES -->
     <div class="sub-wrap">
-      <span class="sub-label hot">🇧🇷 Brasileirão — Hoje (10/03)</span>
+      <span class="sub-label">🏆 Libertadores 2026 — Grupos (sorteio 19/03)</span>
     </div>
-
-    <div class="match-card" style="border: 2px solid var(--yellow);">
-      <div class="match-team"><strong>Mirassol ⬛🔴</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕘 21h30</div>
-        <div class="match-info">Est. Campos Maia · Mirassol</div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-body">
+        6 brasileiros: <strong>Flamengo, Palmeiras, Fluminense, Corinthians, Cruzeiro e Mirassol.</strong> Final: Estádio Centenário, Montevidéu — 28/11. Fase de grupos: 7 de abril.
       </div>
-      <div class="match-team right"><strong>Santos ⚪⬛</strong></div>
     </div>
 
-    <!-- BRASILEIRÃO QUARTA -->
+    <div class="grupo-grid">
+      <div class="grupo-card">
+        <div class="grupo-header lib">GRUPO A</div>
+        <div class="grupo-time"><strong>🇧🇷 Flamengo</strong><br>Estudiantes 🇦🇷<br>Cusco 🇵🇪<br>Ind. Medellín 🇨🇴</div>
+      </div>
+      <div class="grupo-card">
+        <div class="grupo-header lib">GRUPO B</div>
+        <div class="grupo-time">Nacional 🇺🇾<br>Universitario 🇵🇪<br>Coquimbo Unido 🇨🇱<br>Tolima 🇨🇴</div>
+      </div>
+      <div class="grupo-card">
+        <div class="grupo-header lib">GRUPO C</div>
+        <div class="grupo-time"><strong>🇧🇷 Fluminense</strong><br>Bolívar 🇧🇴<br>La Guaira 🇻🇪<br>Ind. Rivadavia 🇦🇷</div>
+      </div>
+      <div class="grupo-card">
+        <div class="grupo-header lib">GRUPO D</div>
+        <div class="grupo-time">Boca Juniors 🇦🇷<br><strong>🇧🇷 Cruzeiro</strong><br>U. Católica 🇨🇱<br>Barcelona 🇪🇨</div>
+      </div>
+      <div class="grupo-card">
+        <div class="grupo-header lib">GRUPO E</div>
+        <div class="grupo-time">Peñarol 🇺🇾<br><strong>🇧🇷 Corinthians</strong><br>Santa Fe 🇨🇴<br>Platense 🇦🇷</div>
+      </div>
+      <div class="grupo-card">
+        <div class="grupo-header lib">GRUPO F</div>
+        <div class="grupo-time"><strong>🇧🇷 Palmeiras</strong><br>Cerro Porteño 🇵🇾<br>Jr. Barranquilla 🇨🇴<br>Sporting Cristal 🇵🇪</div>
+      </div>
+      <div class="grupo-card">
+        <div class="grupo-header lib">GRUPO G</div>
+        <div class="grupo-time">Ind. del Valle 🇪🇨<br><strong>🇧🇷 Mirassol</strong><br>LDU 🇪🇨<br>Always Ready 🇧🇴</div>
+      </div>
+      <div class="grupo-card">
+        <div class="grupo-header lib">GRUPO H</div>
+        <div class="grupo-time">River Plate 🇦🇷<br>Libertad 🇵🇾<br>Rosario Central 🇦🇷<br>Univ. Central 🇻🇪</div>
+      </div>
+    </div>
+
+    <!-- SUL-AMERICANA -->
     <div class="sub-wrap">
-      <span class="sub-label">📅 Brasileirão — Quarta-feira (11/03)</span>
+      <span class="sub-label">🏆 Sul-Americana 2026 — Grupos (sorteio 19/03)</span>
     </div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>Atlético-MG ⬛⚪</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕖 19h00</div>
-        <div class="match-info">Arena MRV · BH</div>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-body">
+        7 brasileiros: <strong>Atlético-MG, São Paulo, Grêmio, Santos, Bragantino, Vasco e Botafogo.</strong> Final: Barranquilla — 21/11. Fase de grupos: 9 de abril.
       </div>
-      <div class="match-team right"><strong>Internacional 🔴</strong></div>
     </div>
 
-    <div class="match-card">
-      <div class="match-team"><strong>Bahia 🔵🔴</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕗 20h00</div>
-        <div class="match-info">Arena Fonte Nova · Salvador</div>
+    <div class="grupo-grid">
+      <div class="grupo-card">
+        <div class="grupo-header sul">GRUPO A</div>
+        <div class="grupo-time">América de Cali 🇨🇴<br>Tigre 🇦🇷<br>Macará 🇪🇨<br>Ind. Petrolero 🇧🇴</div>
       </div>
-      <div class="match-team right"><strong>Vitória 🔴⬛</strong></div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>Corinthians ⬛⚪</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕘 21h30</div>
-        <div class="match-info">Neo Química Arena · SP</div>
+      <div class="grupo-card">
+        <div class="grupo-header sul">GRUPO B</div>
+        <div class="grupo-time"><strong>🇧🇷 Atlético-MG</strong><br>Cienciano 🇵🇪<br>Puerto Cabello 🇻🇪<br>Juventud 🇺🇾</div>
       </div>
-      <div class="match-team right"><strong>Cruzeiro 💙</strong></div>
-    </div>
-
-    <div class="match-card" style="margin-bottom:16px;">
-      <div class="match-team"><strong>Flamengo 🔴⬛</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕘 21h30</div>
-        <div class="match-info">Maracanã · Rio de Janeiro</div>
+      <div class="grupo-card">
+        <div class="grupo-header sul">GRUPO C</div>
+        <div class="grupo-time"><strong>🇧🇷 São Paulo</strong><br>Millonarios 🇨🇴<br>Boston River 🇺🇾<br>O'Higgins 🇨🇱</div>
       </div>
-      <div class="match-team right"><strong>Cruzeiro 💙</strong></div>
-    </div>
-
-    <!-- BRASILEIRÃO QUINTA -->
-    <div class="sub-wrap">
-      <span class="sub-label">📅 Brasileirão — Quinta-feira (12/03)</span>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>Remo 💙</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕖 19h00</div>
-        <div class="match-info">Mangueirão · Belém</div>
+      <div class="grupo-card">
+        <div class="grupo-header sul">GRUPO D</div>
+        <div class="grupo-time"><strong>🇧🇷 Santos</strong><br>San Lorenzo 🇦🇷<br>Dep. Cuenca 🇪🇨<br>Recoleta 🇵🇾</div>
       </div>
-      <div class="match-team right"><strong>Fluminense 🟢⬛🔴</strong></div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>Vasco ⬛⚪</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕖 19h30</div>
-        <div class="match-info">São Januário · Rio de Janeiro</div>
+      <div class="grupo-card">
+        <div class="grupo-header sul">GRUPO E</div>
+        <div class="grupo-time">Racing 🇦🇷<br>Caracas 🇻🇪<br>Ind. Petrolero 🇧🇴<br><strong>🇧🇷 Botafogo</strong></div>
       </div>
-      <div class="match-team right"><strong>Palmeiras 🟢</strong></div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>São Paulo 🔴⬛</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕗 20h00</div>
-        <div class="match-info">Est. do Canindé · SP</div>
+      <div class="grupo-card">
+        <div class="grupo-header sul">GRUPO F</div>
+        <div class="grupo-time"><strong>🇧🇷 Grêmio</strong><br>Palestino 🇨🇱<br>City Torque 🇺🇾<br>Riestra 🇦🇷</div>
       </div>
-      <div class="match-team right"><strong>Chapecoense 🟢</strong></div>
-    </div>
-
-    <div class="match-card">
-      <div class="match-team"><strong>Grêmio 💙⬛</strong></div>
-      <div style="text-align:center">
-        <div class="match-score pending">🕘 21h30</div>
-        <div class="match-info">Arena do Grêmio · Porto Alegre</div>
+      <div class="grupo-card">
+        <div class="grupo-header sul">GRUPO G</div>
+        <div class="grupo-time">Olimpia 🇵🇾<br><strong>🇧🇷 Vasco</strong><br>Audax Italiano 🇨🇱<br>Barracas Central 🇦🇷</div>
       </div>
-      <div class="match-team right"><strong>Bragantino 🔴⬛</strong></div>
+      <div class="grupo-card">
+        <div class="grupo-header sul">GRUPO H</div>
+        <div class="grupo-time">River Plate 🇦🇷<br><strong>🇧🇷 Bragantino</strong><br>Blooming 🇧🇴<br>Carabobo 🇻🇪</div>
+      </div>
     </div>
 
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════════ -->
-<!-- 3. BRASIL                                 -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ══ BRASIL ══ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🇧🇷</span>
@@ -491,21 +329,21 @@
   </div>
   <div class="section-body">
 
-    <div class="news-card" style="border-left-color: var(--red);">
-      <div class="card-label">Judiciário · STF · Alexandre de Moraes</div>
-      <div class="card-title">⚖️ Advogados entram com pedido de prisão e afastamento de Moraes</div>
+    <div class="news-card" style="border-left-color:var(--red);">
+      <div class="card-label">Justiça · Caso Master · STF</div>
+      <div class="card-title">Mendonça não aceita delação "pela metade" — Vorcaro quer poupar ministros do STF</div>
       <div class="card-body">
-        Os advogados <strong>Paulo Faria</strong> e <strong>Filipe de Oliveira</strong> protocolaram pedido de prisão e afastamento do ministro <strong>Alexandre de Moraes</strong> do STF. O processo foi encaminhado ao presidente da Corte, <strong>Edson Fachin</strong>. A petição cita diálogos extraídos do celular de <strong>Daniel Vorcaro</strong>, dono do Banco Master, e pede que Fachin encaminhe o caso à PGR para eventual abertura de investigação criminal.
-        <br><a href="https://revistaoeste.com/no-ponto/advogados-entram-com-pedido-de-prisao-e-afastamento-de-moraes/" target="_blank">→ Leia mais na Revista Oeste</a>
+        Mendonça recusou acordo que pouparia Moraes e Toffoli. Vorcaro foi transferido à sede da PF em Brasília — sinal de que negociações avançaram.
+        <br><a href="https://www.cnnbrasil.com.br/politica/mendonca-nao-aceitara-delacao-de-vorcaro-pela-metade/" target="_blank">→ CNN Brasil</a>
       </div>
     </div>
 
     <div class="news-card warn">
-      <div class="card-label">Segurança · São Paulo · Caso Gisele PM</div>
-      <div class="card-title">🚨 Marido de PM tomou banho e trocou de roupa após morte suspeita em SP</div>
+      <div class="card-label">Economia · Ministério da Fazenda</div>
+      <div class="card-title">Haddad sai para disputar SP — Dario Durigan assume a Fazenda</div>
       <div class="card-body">
-        Imagens de câmeras de segurança mostram que o <strong>tenente-coronel da PM Geraldo Leite Rosa Neto</strong> tomou banho e trocou de roupa após a morte da também policial <strong>Gisele Alves Santana</strong> (32), encontrada com um tiro na cabeça no apartamento do casal, no Brás, em 18 de fevereiro. O caso foi inicialmente registrado como <strong>suicídio</strong>, mas passou a ser investigado como <strong>morte suspeita</strong> após a família relatar sinais de relacionamento abusivo — Gisele era proibida de usar batom, salto alto e perfume. O corpo foi <strong>exumado</strong> na última sexta para novo laudo médico.
-        <br><a href="https://www.cnnbrasil.com.br/nacional/sudeste/sp/marido-de-pm-tomou-banho-e-trocou-de-roupa-apos-morte-em-sp-veja-imagens/" target="_blank">→ Leia mais na CNN Brasil</a>
+        Durigan, 41, era secretário-executivo desde 2023. Passa pela AGU, Casa Civil e Meta antes de chegar ao ministério.
+        <br><a href="https://revistaoeste.com/politica/quem-e-dario-durigan-novo-ministro-da-fazenda/" target="_blank">→ Revista Oeste</a>
       </div>
     </div>
 
@@ -513,32 +351,30 @@
 </section>
 
 
-<!-- ══════════════════════════════════════════ -->
-<!-- 4. MUNDO                                  -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ══ MUNDO ══ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🌎</span>
     <span class="section-title">Mundo</span>
-    <span class="section-sub">Guerra no Oriente Médio + Tech</span>
+    <span class="section-sub">Guerra Irã — Dia 21</span>
   </div>
   <div class="section-body">
 
     <div class="news-card world">
-      <div class="card-label">Oriente Médio · Irã · Bahrein · Petróleo</div>
-      <div class="card-title">🔥 Irã ataca refinaria no Bahrein — 32 feridos e força maior declarada</div>
+      <div class="card-label">EUA · Israel · Irã · Dia 21</div>
+      <div class="card-title">Porta-voz da Guarda Revolucionária morto — Trump: "Praticamente tudo foi destruído"</div>
       <div class="card-body">
-        Novos drones iranianos deixaram <strong>pelo menos 32 feridos</strong> — incluindo um bebê de dois meses — e provocaram um incêndio em uma refinaria da estatal <strong>BAPCO Energies</strong> na ilha de Sitra. A petroleira declarou <strong>força maior</strong>, suspendendo obrigações contratuais com o mercado mundial. A guerra no Golfo já havia feito o barril de Brent disparar cerca de 30% na primeira semana de conflito. Trump tentou acalmar os mercados, prometendo que os preços cairão "rapidamente" com o fim das operações contra o Irã.
-        <br><a href="https://www.gazetadopovo.com.br/mundo/ataques-ira-paralisam-setor-energetico-bahrein-trump-minimiza-alta-petroleo/" target="_blank">→ Leia mais na Gazeta do Povo</a>
+        Ali Mohammad Naini, porta-voz da IRGC, foi morto em ataque EUA-Israel. Mais de 1.200 civis mortos no Irã desde o início do conflito.
+        <br><a href="https://veja.abril.com.br/mundo/ira-diz-que-porta-voz-da-guarda-revolucionaria-islamica-foi-morto-em-ataque-eua-israel/" target="_blank">→ Veja</a>
       </div>
     </div>
 
     <div class="news-card world">
-      <div class="card-label">Tech · IA · Oracle · OpenAI · Meta</div>
-      <div class="card-title">💻 Oracle e OpenAI desistem de expansão de data center — Meta entra na mira</div>
+      <div class="card-label">Oriente Médio · Golfo Pérsico · Petróleo</div>
+      <div class="card-title">Drones iranianos atingem Kuwait e Golfo — petróleo dispara +51% em um mês</div>
       <div class="card-body">
-        A <strong>Oracle</strong> e a <strong>OpenAI</strong> abandonaram os planos de expandir o data center do projeto <strong>Stargate</strong> em Abilene, Texas — parte do complexo de IA anunciado com Trump na Casa Branca. As negociações travaram por questões de financiamento e mudanças frequentes nas previsões de demanda da OpenAI. Com a vaga aberta, a <strong>Nvidia</strong> pagou um depósito de <strong>US$ 150 milhões</strong> à desenvolvedora Crusoe e começou a articular a entrada da <strong>Meta</strong> como nova inquilina. A gigante de Zuckerberg já projeta gastos de capital de até <strong>US$ 135 bilhões em 2026</strong>.
-        <br><a href="https://www.infomoney.com.br/business/oracle-e-openai-abandonam-expansao-de-data-center-que-pode-entrar-na-mira-da-meta/" target="_blank">→ Leia mais na InfoMoney</a>
+        Refinaria no Kuwait foi atingida. Emirados e Arábia Saudita ativaram defesa aérea. Estreito de Ormuz segue fechado.
+        <br><a href="https://www.bbc.com/portuguese/articles/c3wlw2z24ngo" target="_blank">→ BBC Brasil</a>
       </div>
     </div>
 
@@ -546,65 +382,45 @@
 </section>
 
 
-<!-- ══════════════════════════════════════════ -->
-<!-- 5. ECONOMIA                               -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ══ ECONOMIA ══ -->
 <section>
   <div class="section-header">
-    <span class="section-emoji">📈</span>
+    <span class="section-emoji">💰</span>
     <span class="section-title">Economia</span>
-    <span class="section-sub">Mercados do dia</span>
+    <span class="section-sub">Fechamento · 20/03</span>
   </div>
   <div class="section-body">
 
-    <div class="card">
-      <table class="eco-table">
-        <thead>
-          <tr>
-            <th>Ativo</th>
-            <th>Valor</th>
-            <th>Variação</th>
-            <th>Ref.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="asset">₿ Bitcoin</td>
-            <td class="val">US$ 70.427,56</td>
-            <td class="up">▲ +2,90%</td>
-            <td style="font-size:11px;color:#aaa;">09h00</td>
-          </tr>
-          <tr>
-            <td class="asset">🛢️ Petróleo</td>
-            <td class="val">US$ 90,31</td>
-            <td class="down">▼ -4,70%</td>
-            <td style="font-size:11px;color:#aaa;">07h00</td>
-          </tr>
-          <tr>
-            <td class="asset">📊 Ibovespa</td>
-            <td class="val">180.915,36</td>
-            <td class="up">▲ +0,86%</td>
-            <td style="font-size:11px;color:#aaa;">ontem</td>
-          </tr>
-          <tr>
-            <td class="asset">PETR4</td>
-            <td class="val">R$ 43,16</td>
-            <td class="up">▲ +2,49%</td>
-            <td style="font-size:11px;color:#aaa;">fechamento</td>
-          </tr>
-          <tr>
-            <td class="asset">VALE3</td>
-            <td class="val">R$ 79,26</td>
-            <td class="up">▲ +0,51%</td>
-            <td style="font-size:11px;color:#aaa;">fechamento</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="eco-grid">
+      <div class="eco-card">
+        <div class="eco-city">₿ Bitcoin (BTC)</div>
+        <div class="eco-val">US$ 70.354</div>
+        <div class="eco-up">▲ +0,62%</div>
+        <div class="eco-sub">10h00 de hoje</div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-city">🛢️ Petróleo (WTI)</div>
+        <div class="eco-val">US$ 108,33</div>
+        <div class="eco-up">▲ +0,76%</div>
+        <div class="eco-sub">+51,98% no último mês 🔥</div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-city">📊 Ibovespa</div>
+        <div class="eco-val">180.270</div>
+        <div class="eco-up">▲ +0,35%</div>
+        <div class="eco-sub">Fechamento ontem</div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-city">🇺🇸 Dólar (USD)</div>
+        <div class="eco-val">R$ 5,21</div>
+        <div class="eco-down">▼ -0,59%</div>
+        <div class="eco-sub">Fechamento ontem</div>
+      </div>
     </div>
 
-    <div class="card">
-      <div class="card-body" style="border-left: 3px solid var(--down, #e03030); padding-left: 10px; border-left-color: var(--red);">
-        🛢️ O petróleo caindo quase 5% mesmo com os ataques iranianos no Bahrein? Trump prometendo estabilização dos preços com o fim do conflito parece estar surtindo efeito nos mercados. Bitcoin em alta e Petrobras sorrindo. 💰
+    <div class="card" style="margin-top:10px;">
+      <div class="card-body" style="border-left:3px solid var(--orange); padding-left:10px;">
+        🛢️ Petróleo acima de US$ 108 com +51% em um mês. Reflexo direto do fechamento do Estreito de Ormuz. Impacto nos combustíveis é inevitável.
       </div>
     </div>
 
@@ -612,9 +428,7 @@
 </section>
 
 
-<!-- ══════════════════════════════════════════ -->
-<!-- 6. FISCAL DA PROMO                        -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ══ FISCAL DA PROMO ══ -->
 <section>
   <div class="section-header">
     <span class="section-emoji">🛍️</span>
@@ -624,22 +438,22 @@
   <div class="section-body">
 
     <div class="promo-card">
-      <div class="promo-emoji">👕</div>
+      <div class="promo-emoji">💨</div>
       <div class="promo-content">
-        <div class="promo-store">Camiseta · Mercado Livre</div>
-        <div class="promo-title">Camiseta Básica Tech Insider Masculina</div>
-        <div class="card-body" style="margin-top:4px;">Aiinnnnn ele usa camisetinha que não amassa. Corre que tá por menos de 100 pila e tem 8 cores para você comprar. 😏🎨</div>
-        <a href="https://meli.la/2zSeHci" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
+        <div class="promo-store">Hold On · Mercado Livre</div>
+        <div class="promo-title">Mini Compressor Digital Portátil — Carro, Bike e Moto</div>
+        <div class="card-body" style="margin-top:4px;">Pneu furou e você não sabe trocar. Enche o pneu e chega até a borracharia sem drama. 🚗🚲🏍️</div>
+        <a href="https://meli.la/1g6vQHj" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
       </div>
     </div>
 
     <div class="promo-card">
-      <div class="promo-emoji">💪</div>
+      <div class="promo-emoji">🔧</div>
       <div class="promo-content">
-        <div class="promo-store">Suplemento · Mercado Livre</div>
-        <div class="promo-title">Creatina Monohidratada 1Kg Soldiers Nutrition — 100% Pura Importada</div>
-        <div class="card-body" style="margin-top:4px;">Nossaaaaa como ele é musculoso. Para de ser frango e aproveita essa promo. 🐔➡️💪</div>
-        <a href="https://meli.la/2GXvMHX" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
+        <div class="promo-store">Parafusadeira 48V · Mercado Livre</div>
+        <div class="promo-title">Furadeira Parafusadeira 48V — 2 Baterias Recarregáveis</div>
+        <div class="card-body" style="margin-top:4px;">Com essa skin você não pina! Todo dono de casa tem que ter. 48V, 2 baterias, pronto pra qualquer missão. 🏠🔩</div>
+        <a href="https://meli.la/32LrdjE" class="promo-link" target="_blank">→ Ver no Mercado Livre</a>
       </div>
     </div>
 
@@ -647,10 +461,9 @@
 </section>
 
 
-<!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-grito">VAIII FISCALLLLL! 🔍🔥</div>
-  <div class="footer-sub">Edição 005 · 10 de Março de 2026 · fiscaldeminuto.github.io</div>
+  <div class="footer-sub">Edição 005 · 20 de Março de 2026 · fiscaldeminuto.github.io</div>
 </footer>
 
 </body>
