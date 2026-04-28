@@ -1,1 +1,27 @@
+name: Gerar Newsletter
+on:
+  workflow_dispatch:
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with: {python-version: '3.9'}
+      - name: Install Google AI
+        run: pip install google-generativeai
+      - name: Rodar Script
+        run: python script.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Salvar e Publicar
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m "Site atualizado automaticamente pela IA"
+          git push
