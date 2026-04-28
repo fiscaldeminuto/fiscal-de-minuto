@@ -3,7 +3,8 @@ import google.generativeai as genai
 
 # Configuração da API
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+# Atualizamos para o modelo mais recente e estável
+model = genai.GenerativeModel('gemini-2.0-flash')
 
 # COLOQUE SEUS LINKS AQUI
 links = """
