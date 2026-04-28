@@ -1,0 +1,38 @@
+import os
+import google.generativeai as genai
+
+# Configuração da API
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+# COLOQUE SEUS LINKS AQUI
+links = """
+- https://site.com/link1
+- https://site.com/link2
+"""
+
+prompt = f"""
+Atue como editor do site "Fiscal de Minuto". Use os links abaixo para gerar o conteúdo das seções do site.
+Siga EXATAMENTE a estrutura HTML que já existe (use as classes .section-header, .news-card, .card-title, .card-body).
+O objetivo é manter o mesmo visual: caixas, cores, e emojis.
+Não coloque introduções, apenas o código HTML.
+Links: {links}
+"""
+
+response = model.generate_content(prompt)
+novo_conteudo = response.text
+
+# Leitura e Substituição
+with open('index.html', 'r', encoding='utf-8') as f:
+    html = f.read()
+
+# Substituir o que está entre as tags
+inicio = ""
+fim = ""
+
+# Corta o arquivo, mantém o que está antes da tag de inicio, 
+# insere o novo conteúdo, e coloca o resto do arquivo depois da tag de fim
+html_final = html.split(inicio)[0] + inicio + "\n" + novo_conteudo + "\n" + fim + html.split(fim)[1]
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_final)
