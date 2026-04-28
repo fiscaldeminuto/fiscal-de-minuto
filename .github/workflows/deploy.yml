@@ -1,39 +1,27 @@
-import os
-import google.generativeai as genai
+name: Gerar Newsletter
+on:
+  workflow_dispatch:
 
-# Configuração da API
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-# Atualizamos para o modelo mais recente e estável
-model = genai.GenerativeModel('gemini-2.0-flash')
-
-# COLOQUE SEUS LINKS AQUI
-links = """
-- https://site.com/link1
-- https://site.com/link2
-"""
-
-prompt = f"""
-Atue como editor do site "Fiscal de Minuto". Use os links abaixo para gerar o conteúdo das seções do site.
-Siga EXATAMENTE a estrutura HTML que já existe (use as classes .section-header, .news-card, .card-title, .card-body).
-O objetivo é manter o mesmo visual: caixas, cores, e emojis.
-Não coloque introduções, apenas o código HTML.
-Links: {links}
-"""
-
-response = model.generate_content(prompt)
-novo_conteudo = response.text
-
-# Leitura e Substituição
-with open('index.html', 'r', encoding='utf-8') as f:
-    html = f.read()
-
-# Substituir o que está entre as tags
-inicio = ""
-fim = ""
-
-# Corta o arquivo, mantém o que está antes da tag de inicio, 
-# insere o novo conteúdo, e coloca o resto do arquivo depois da tag de fim
-html_final = html.split(inicio)[0] + inicio + "\n" + novo_conteudo + "\n" + fim + html.split(fim)[1]
-
-with open('index.html', 'w', encoding='utf-8') as f:
-    f.write(html_final)
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with: {python-version: '3.12'} # <--- Alteramos de 3.9 para 3.12
+      - name: Install Google AI
+        run: pip install google-generativeai
+      - name: Rodar Script
+        run: python script.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Salvar e Publicar
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m "Site atualizado automaticamente pela IA"
+          git push
