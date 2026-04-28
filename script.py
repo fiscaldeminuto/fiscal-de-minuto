@@ -7,8 +7,13 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 # COLOQUE SEUS LINKS AQUI
 links = """
-- https://site.com/link1
-- https://site.com/link2
+- https://revistaoeste.com/brasil/justica-do-df-condena-wilker-leao-por-videos-na-unb-e-impoe-pena-de-quase-2-anos/
+- https://revistaoeste.com/brasil/sp-devolve-383-celulares-roubados-e-supera-235-mil-aparelhos-recuperados/
+
+- https://revistaoeste.com/mundo/emirados-arabes-unidos-deixam-opep-e-opep-em-meio-a-tensoes-regionais/
+- https://revistaoeste.com/mundo/ira-estaria-em-estado-de-colapso-segundo-trump/
+
+- https://www.instagram.com/p/DXrjCLSFiaj/
 """
 
 prompt = f"""
